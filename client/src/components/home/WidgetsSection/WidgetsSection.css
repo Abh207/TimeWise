@@ -1,0 +1,135 @@
+/* WidgetsSection.css */
+
+.widgets-dotted-bg {
+  background-color: #F8F4ED;
+  background-image: radial-gradient(rgba(20, 20, 20, 0.05) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+.dark .widgets-dotted-bg {
+  background-color: #0E0E0E;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* Card default styling */
+.widget-card {
+  border-radius: 24px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 30px rgba(60, 40, 10, 0.06);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.dark .widget-card {
+  background-color: #161616;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.widget-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(60, 40, 10, 0.12);
+}
+
+.dark .widget-card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* Gentle idle float on desktop */
+@media (min-width: 1024px) {
+  .widget-float-1 {
+    animation: widgetFloat 6s ease-in-out infinite;
+  }
+  .widget-float-2 {
+    animation: widgetFloat 6.5s ease-in-out infinite 0.7s;
+  }
+  .widget-float-3 {
+    animation: widgetFloat 5.8s ease-in-out infinite 1.4s;
+  }
+}
+
+@keyframes widgetFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Diagonal Striped Bar for Active Time */
+.striped-bar-green {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #2E9E5E,
+    #2E9E5E 6px,
+    #3DB772 6px,
+    #3DB772 12px
+  );
+}
+
+/* Animated Diagonal Striped Bar for Monthly Progress */
+.striped-bar-blue-animated {
+  background-size: 32px 32px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #3B82F6,
+    #3B82F6 8px,
+    #60A5FA 8px,
+    #60A5FA 16px
+  );
+  animation: moveStripes 2s linear infinite;
+}
+
+@keyframes moveStripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 32px 0;
+  }
+}
+
+/* Animated Waveform */
+@keyframes wavePulse {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.waveform-active {
+  animation: wavePulse 1.2s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+/* Stroke Dashoffset Chart Animation */
+.chart-path-animated {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawChart 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawChart {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .widget-float-1,
+  .widget-float-2,
+  .widget-float-3,
+  .striped-bar-blue-animated,
+  .waveform-active,
+  .chart-path-animated {
+    animation: none !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+

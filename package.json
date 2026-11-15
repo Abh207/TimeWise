@@ -1,0 +1,27 @@
+{
+  "name": "lifesync-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LifeSync AI — Intelligent Time Table, Productivity & Life Management Platform",
+  "scripts": {
+    "dev": "npm run dev --prefix client",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build": "npm run build --prefix client && npm run build --prefix server",
+    "build:client": "npm run build --prefix client",
+    "build:server": "npm run build --prefix server",
+    "start": "npm run start --prefix server"
+  },
+  "keywords": [
+    "productivity",
+    "timetable",
+    "schedule",
+    "ai-planner",
+    "streaks",
+    "life-management",
+    "focus-timer"
+  ],
+  "author": "LifeSync AI Team",
+  "license": "MIT"
+}
+

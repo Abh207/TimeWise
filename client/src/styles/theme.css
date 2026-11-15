@@ -1,0 +1,57 @@
+:root {
+  /* Clean Green Timetable App Color System */
+  --green-600: #2E9E5E;
+  --green-500: #3DB772;
+  --green-100: #E6F4EA;
+  --green-50:  #F3FAF5;
+  --ink-900:   #1B2B22;
+  --ink-500:   #6B7C72;
+  --white:     #FFFFFF;
+  
+  --shadow-soft: 0 8px 24px rgba(46, 158, 94, 0.15);
+  --shadow-sm: 0 2px 8px rgba(46, 158, 94, 0.08);
+  --shadow-lg: 0 16px 36px rgba(46, 158, 94, 0.22);
+  
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-full: 9999px;
+
+  /* Optional Accent Chips */
+  --amber: #F5A524;
+  --sky:   #4DA3FF;
+  --coral: #FF7A6B;
+  --violet: #8B7CF6;
+
+  /* Aliases for general component backgrounds */
+  --bg-page: var(--green-50);
+  --bg-card: var(--white);
+  --bg-mint: var(--green-100);
+  --border-subtle: rgba(46, 158, 94, 0.15);
+  --border-mint: rgba(46, 158, 94, 0.25);
+}
+
+.dark {
+  --green-600: #3DB772;
+  --green-500: #4FD18B;
+  --green-100: #14281E;
+  --green-50:  #0C1812;
+  --ink-900:   #F0FDF4;
+  --ink-500:   #9AB3A4;
+  --white:     #122218;
+  
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.6);
+
+  --amber: #FBBF24;
+  --sky:   #60A5FA;
+  --coral: #F87171;
+  --violet: #A78BFA;
+
+  --bg-page: var(--green-50);
+  --bg-card: var(--white);
+  --bg-mint: var(--green-100);
+  --border-subtle: rgba(61, 183, 114, 0.2);
+  --border-mint: rgba(61, 183, 114, 0.3);
+}
+

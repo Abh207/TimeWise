@@ -1,0 +1,333 @@
+@import './styles/theme.css';
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--green-50);
+    color: var(--ink-900);
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Clean green scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(46, 158, 94, 0.25);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--green-600);
+  }
+}
+
+@layer utilities {
+  /* Reusable card primitives */
+  .card-clean {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-subtle);
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  }
+
+  .card-mint {
+    background-color: var(--green-100);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-mint);
+    transition: transform 250ms ease, box-shadow 250ms ease;
+  }
+
+  /* Hover Lift */
+  .hover-lift {
+    transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Primary green action button */
+  .btn-primary-green {
+    background-color: var(--green-600);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.75rem 1.75rem;
+    box-shadow: var(--shadow-soft);
+    transition: all 250ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .btn-primary-green:hover {
+    background-color: var(--green-500);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Outline green secondary button */
+  .btn-secondary-outline {
+    background-color: transparent;
+    color: var(--green-600);
+    border: 1.5px solid var(--green-600);
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    transition: all 250ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .btn-secondary-outline:hover {
+    background-color: var(--green-100);
+    transform: translateY(-2px);
+  }
+
+  /* Input fields */
+  .input-clean {
+    background-color: var(--white);
+    border: 1.5px solid rgba(46, 158, 94, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--ink-900);
+    padding: 0.75rem 1rem;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .input-clean:focus {
+    outline: none;
+    border-color: var(--green-600);
+    box-shadow: 0 0 0 3px rgba(46, 158, 94, 0.15);
+  }
+
+  /* Edge fade masks for horizontal marquees */
+  .mask-marquee-x {
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+
+  /* Backward-compatible aliases for existing subpages */
+  .card-noir, .card-aurora, .glass-card, .glass {
+    background-color: var(--white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .aurora-input, .glass-input {
+    background-color: var(--white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--ink-900);
+    transition: all 0.2s ease;
+  }
+  .aurora-input:focus, .glass-input:focus {
+    border-color: var(--green-600);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 158, 94, 0.15);
+  }
+}
+
+/* Pause marquee on hover */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused !important;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes watchFloat {
+  0%, 100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes spinOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glassFloat1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glassFloat2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes cardFloat1 {
+  0%, 100% {
+    transform: translateY(-7px) translateX(-3px);
+  }
+  50% {
+    transform: translateY(7px) translateX(3px);
+  }
+}
+
+@keyframes cardFloat2 {
+  0%, 100% {
+    transform: translateY(6px) translateX(2px);
+  }
+  50% {
+    transform: translateY(-6px) translateX(-2px);
+  }
+}
+
+@keyframes cardFloat3 {
+  0%, 100% {
+    transform: translateY(-5px) translateX(3px);
+  }
+  50% {
+    transform: translateY(5px) translateX(-3px);
+  }
+}
+
+.animate-card-float-1 {
+  animation: cardFloat1 5.6s ease-in-out infinite;
+}
+.animate-card-float-2 {
+  animation: cardFloat2 6.4s ease-in-out infinite;
+}
+.animate-card-float-3 {
+  animation: cardFloat3 5.9s ease-in-out infinite;
+}
+
+@media (max-height: 760px) {
+  .short-hide {
+    display: none !important;
+  }
+  .short-shrink {
+    transform: scale(0.86) !important;
+    transform-origin: center !important;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+.animate-fade-in-left {
+  animation: fadeInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-fade-in-right {
+  animation: fadeInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-watch-float {
+  animation: watchFloat 5.5s ease-in-out infinite;
+}
+.animate-spin-orbit {
+  animation: spinOrbit 35s linear infinite;
+}
+.animate-glass-float-1 {
+  animation: glassFloat1 4.8s ease-in-out infinite;
+}
+.animate-glass-float-2 {
+  animation: glassFloat2 5.6s ease-in-out infinite;
+}
+
+.delay-75 {
+  animation-delay: 75ms;
+}
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-150 {
+  animation-delay: 150ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Respect user accessibility prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, 
+  .animate-fade-up, 
+  .animate-fade-in, 
+  .animate-fade-in-left, 
+  .animate-fade-in-right, 
+  .animate-watch-float, 
+  .animate-spin-orbit, 
+  .animate-glass-float-1, 
+  .animate-glass-float-2 {
+    animation: none !important;
+  }
+  .animate-spin, .animate-pulse, .animate-bounce, .hover-lift:hover {
+    animation: none !important;
+    transform: none !important;
+  }
+}
