@@ -279,7 +279,7 @@ export const LandingPage: React.FC = () => {
         <VideoModal 
           isOpen={isVideoModalOpen} 
           onClose={() => setIsVideoModalOpen(false)} 
-          videoSrc="/videos/hero.mp4"
+          videoSrc={`${import.meta.env.BASE_URL}videos/hero.mp4`}
         />
       </section>
 

@@ -257,42 +257,42 @@ const ROW3_TESTIMONIALS = [
   {
     name: "Alex Chen",
     role: "STEM Student",
-    avatar: "/images/avatar-1.jpg",
+    avatar: `${import.meta.env.BASE_URL}images/avatar-1.jpg`,
     quote: "TimeWise solved my bi-weekly CS labs and saved 4 hours of weekly study time.",
     chipBg: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0]"
   },
   {
     name: "Dr. Elena Rostova",
     role: "Researcher",
-    avatar: "/images/avatar-2.jpg",
+    avatar: `${import.meta.env.BASE_URL}images/avatar-2.jpg`,
     quote: "No more double-bookings across wet labs and symposiums. The buffer check is essential.",
     chipBg: "bg-[#EAF4FF] text-[#4DA3FF]"
   },
   {
     name: "Marcus Vance",
     role: "Software Lead",
-    avatar: "/images/avatar-3.jpg",
+    avatar: `${import.meta.env.BASE_URL}images/avatar-3.jpg`,
     quote: "The 528Hz Solfeggio bells and Pomodoro chamber keep my coding blocks uninterrupted.",
     chipBg: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0]"
   },
   {
     name: "Sarah Lindqvist",
     role: "Medical Resident",
-    avatar: "/images/avatar-4.jpg",
+    avatar: `${import.meta.env.BASE_URL}images/avatar-4.jpg`,
     quote: "Streak freeze shields saved my 120-day habit streak during grueling hospital shifts.",
     chipBg: "bg-[#FFF0EE] text-[#FF7A6B]"
   },
   {
     name: "Dmitri Volkov",
     role: "Founder",
-    avatar: "/images/avatar-1.jpg",
+    avatar: `${import.meta.env.BASE_URL}images/avatar-1.jpg`,
     quote: "Harmonized quarterly OKRs, sprint boards, and sleep cycles in one clean interface.",
     chipBg: "bg-[#F4F1FE] text-[#8B7CF6]"
   },
   {
     name: "Claire Moreau",
     role: "Creative Director",
-    avatar: "/images/avatar-2.jpg",
+    avatar: `${import.meta.env.BASE_URL}images/avatar-2.jpg`,
     quote: "Finally a timetable that doesn't look like a 2012 enterprise spreadsheet.",
     chipBg: "bg-[#FFF8EB] text-[#F5A524]"
   }

@@ -63,7 +63,7 @@ export const SignUpPage: React.FC = () => {
       {/* Left visual panel */}
       <div className="lg:w-1/2 relative rounded-[24px] overflow-hidden border border-[rgba(245,199,176,0.3)] shadow-soft flex flex-col justify-between p-6 sm:p-10 min-h-[280px] lg:min-h-full">
         <img
-          src="/images/student-focus.jpg"
+          src={`${import.meta.env.BASE_URL}images/student-focus.jpg`}
           alt="Focused student studying"
           className="absolute inset-0 w-full h-full object-cover"
         />

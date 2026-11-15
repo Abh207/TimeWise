@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 // Public & Auth Pages
 import { LandingPage } from './pages/public/LandingPage';
@@ -41,7 +41,7 @@ import { HelpPage } from './pages/help/HelpPage';
 
 export function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
@@ -88,7 +88,7 @@ export function App() {
         {/* 404 Catch-all */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -197,7 +197,7 @@ export const AppNavbar: React.FC<AppNavbarProps> = ({
             className="flex items-center gap-2 p-1 rounded-full hover:bg-[#FBE3D6] dark:hover:bg-[#2C1E18] transition-colors"
           >
             <img
-              src={user.avatarUrl || '/images/avatar-1.jpg'}
+              src={user.avatarUrl || `${import.meta.env.BASE_URL}images/avatar-1.jpg`}
               alt={user.displayName}
               className="w-8 h-8 rounded-full object-cover ring-2 ring-[#F5C7B0]/60"
             />

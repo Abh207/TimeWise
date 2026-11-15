@@ -10,7 +10,7 @@ interface VideoModalProps {
 export const VideoModal: React.FC<VideoModalProps> = ({ 
   isOpen, 
   onClose, 
-  videoSrc = '/videos/hero.mp4' 
+  videoSrc = `${import.meta.env.BASE_URL}videos/hero.mp4` 
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);

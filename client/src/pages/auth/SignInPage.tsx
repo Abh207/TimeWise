@@ -63,7 +63,7 @@ export const SignInPage: React.FC = () => {
       <div className="lg:w-1/2 relative rounded-[24px] overflow-hidden border border-[rgba(245,199,176,0.3)] shadow-soft flex flex-col justify-between p-6 sm:p-10 min-h-[280px] lg:min-h-full">
         {/* Background Image */}
         <img
-          src="/images/signin-bg.jpg"
+          src={`${import.meta.env.BASE_URL}images/signin-bg.jpg`}
           alt="Focused study and planning workspace"
           className="absolute inset-0 w-full h-full object-cover"
         />
