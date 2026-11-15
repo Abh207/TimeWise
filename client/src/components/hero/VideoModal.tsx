@@ -53,7 +53,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Close video modal"
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8F03C]"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C7B0]"
         >
           <X className="w-5 h-5" />
         </button>

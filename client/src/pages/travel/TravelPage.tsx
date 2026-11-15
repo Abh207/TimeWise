@@ -130,13 +130,13 @@ export const TravelPage: React.FC = () => {
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-left text-xs border transition-all ${
                       item.checked
-                        ? 'border-emerald-500/20 bg-emerald-500/5 text-slate-300 line-through'
+                        ? 'border-peach-400/20 bg-peach-300/10 text-slate-300 line-through'
                         : 'border-white/5 bg-dark-900/40 text-slate-200 hover:border-white/10'
                     }`}
                   >
                     <CheckCircle2
                       className={`w-4 h-4 flex-shrink-0 ${
-                        item.checked ? 'text-emerald-400' : 'text-slate-600'
+                        item.checked ? 'text-peach-300' : 'text-slate-600'
                       }`}
                     />
                     <span>{item.item}</span>

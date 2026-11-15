@@ -137,7 +137,7 @@ export const ProjectsPage: React.FC = () => {
             <div
               key={prj.id}
               className={`p-6 rounded-2xl glass-card border transition-all flex flex-col justify-between space-y-4 ${
-                isDone ? 'border-emerald-500/40 bg-emerald-500/5' : 'border-white/10 glass-card-hover'
+                isDone ? 'border-peach-400/40 bg-peach-300/10' : 'border-white/10 glass-card-hover'
               }`}
             >
               <div>
@@ -146,7 +146,7 @@ export const ProjectsPage: React.FC = () => {
                     {prj.category}
                   </span>
                   <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded ${
-                    isDone ? 'bg-emerald-500/20 text-emerald-300' : 'bg-brand-500/10 text-brand-300'
+                    isDone ? 'bg-peach-300/20 text-peach-300' : 'bg-brand-500/10 text-brand-300'
                   }`}>
                     {prj.status.replace('_', ' ')}
                   </span>
@@ -165,7 +165,7 @@ export const ProjectsPage: React.FC = () => {
                   </div>
                   <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full ${isDone ? 'bg-emerald-500' : 'bg-brand-500'}`}
+                      className={`h-full rounded-full ${isDone ? 'bg-peach-400' : 'bg-brand-500'}`}
                       style={{ width: `${prj.progress}%` }}
                     />
                   </div>

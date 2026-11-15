@@ -52,7 +52,7 @@ export const TasksListCard: React.FC = () => {
   };
 
   return (
-    <div className="widget-card p-4 sm:p-5 flex flex-col justify-between">
+    <div className="widget-card p-[clamp(16px,1.4vw,24px)] flex flex-col justify-between">
       {/* Header */}
       <div>
         <div className="flex items-center justify-between">
@@ -65,7 +65,7 @@ export const TasksListCard: React.FC = () => {
               type="button"
               onClick={handlePrev}
               aria-label="Previous project"
-              className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#C8F03C] dark:hover:text-[#141414] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C8F03C]"
+              className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#F5C7B0] dark:hover:text-[#2A1810] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F5C7B0]"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
             </button>
@@ -73,7 +73,7 @@ export const TasksListCard: React.FC = () => {
               type="button"
               onClick={handleNext}
               aria-label="Next project"
-              className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#C8F03C] dark:hover:text-[#141414] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C8F03C]"
+              className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#F5C7B0] dark:hover:text-[#2A1810] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F5C7B0]"
             >
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
@@ -97,10 +97,10 @@ export const TasksListCard: React.FC = () => {
             </span>
           </div>
 
-          {/* Green Progress Bar */}
+          {/* Peach Progress Bar */}
           <div className="w-full h-2 rounded-full bg-[#E5E5E5] dark:bg-[#2C2C2C] overflow-hidden">
             <div
-              className="h-full bg-[#2E9E5E] rounded-full transition-all duration-500 ease-out"
+              className="h-full bg-[var(--peach-400)] rounded-full transition-all duration-500 ease-out"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -129,8 +129,8 @@ export const TasksListCard: React.FC = () => {
               <div
                 className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                   st.completed
-                    ? 'bg-[#2E9E5E] text-white shadow-2xs'
-                    : 'border-2 border-black/25 dark:border-white/25 bg-transparent group-hover:border-[#2E9E5E]'
+                    ? 'bg-[var(--peach-300)] text-[var(--on-peach)] shadow-2xs'
+                    : 'border-2 border-black/25 dark:border-white/25 bg-transparent group-hover:border-[var(--peach-400)]'
                 }`}
               >
                 {st.completed && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -141,7 +141,7 @@ export const TasksListCard: React.FC = () => {
                 className={`text-xs font-medium truncate transition-colors ${
                   st.completed
                     ? 'line-through text-[#8A8A8A] dark:text-[#737373]'
-                    : 'text-[#141414] dark:text-white group-hover:text-[#2E9E5E]'
+                    : 'text-[#141414] dark:text-white group-hover:text-[var(--peach-800)] dark:group-hover:text-[var(--peach-300)]'
                 }`}
               >
                 {st.title}
@@ -174,7 +174,7 @@ export const TasksListCard: React.FC = () => {
           <div className="w-5 h-5 rounded-full bg-[#4DA3FF] text-white text-[8px] font-bold border-2 border-white dark:border-[#161616] flex items-center justify-center shadow-2xs">
             AC
           </div>
-          <div className="w-5 h-5 rounded-full bg-[#C8F03C] text-[#141414] text-[8px] font-bold border-2 border-white dark:border-[#161616] flex items-center justify-center shadow-2xs">
+          <div className="w-5 h-5 rounded-full bg-[#F5C7B0] text-[#2A1810] text-[8px] font-bold border-2 border-white dark:border-[#161616] flex items-center justify-center shadow-2xs">
             MP
           </div>
         </div>

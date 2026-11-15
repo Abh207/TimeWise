@@ -1,16 +1,25 @@
 :root {
-  /* Clean Green Timetable App Color System */
-  --green-600: #2E9E5E;
-  --green-500: #3DB772;
-  --green-100: #E6F4EA;
-  --green-50:  #F3FAF5;
-  --ink-900:   #1B2B22;
-  --ink-500:   #6B7C72;
+  /* TimeWise Peach Palette */
+  --peach-50:  #FDF1EA;   /* very light tint, page and section tints */
+  --peach-100: #FBE3D6;   /* chips, soft backgrounds, hover fills */
+  --peach-300: #F5C7B0;   /* MAIN accent, replaces old green, buttons, active states, highlights */
+  --peach-400: #EFAE8F;   /* hover state, borders, progress fills */
+  --peach-600: #D9805A;   /* icons, strong accents, focus rings */
+  --peach-800: #A24E27;   /* accent TEXT on light backgrounds, passes WCAG AA */
+  --on-peach:  #2A1810;   /* dark text and icons placed ON peach backgrounds */
+
+  /* Legacy & token aliases mapped to peach */
+  --green-600: var(--peach-600);
+  --green-500: var(--peach-300);
+  --green-100: var(--peach-100);
+  --green-50:  var(--peach-50);
+  --ink-900:   #1B1917;
+  --ink-500:   #686058;
   --white:     #FFFFFF;
   
-  --shadow-soft: 0 8px 24px rgba(46, 158, 94, 0.15);
-  --shadow-sm: 0 2px 8px rgba(46, 158, 94, 0.08);
-  --shadow-lg: 0 16px 36px rgba(46, 158, 94, 0.22);
+  --shadow-soft: 0 8px 24px rgba(217, 128, 90, 0.12);
+  --shadow-sm: 0 2px 8px rgba(217, 128, 90, 0.08);
+  --shadow-lg: 0 16px 36px rgba(217, 128, 90, 0.18);
   
   --radius-lg: 20px;
   --radius-md: 14px;
@@ -23,21 +32,29 @@
   --violet: #8B7CF6;
 
   /* Aliases for general component backgrounds */
-  --bg-page: var(--green-50);
+  --bg-page: var(--peach-50);
   --bg-card: var(--white);
-  --bg-mint: var(--green-100);
-  --border-subtle: rgba(46, 158, 94, 0.15);
-  --border-mint: rgba(46, 158, 94, 0.25);
+  --bg-mint: var(--peach-100);
+  --border-subtle: rgba(245, 199, 176, 0.35);
+  --border-mint: rgba(239, 174, 143, 0.45);
 }
 
 .dark {
-  --green-600: #3DB772;
-  --green-500: #4FD18B;
-  --green-100: #14281E;
-  --green-50:  #0C1812;
-  --ink-900:   #F0FDF4;
-  --ink-500:   #9AB3A4;
-  --white:     #122218;
+  --peach-50:  #18100C;
+  --peach-100: #26160F;
+  --peach-300: #F5C7B0;
+  --peach-400: #EFAE8F;
+  --peach-600: #D9805A;
+  --peach-800: #F5C7B0;
+  --on-peach:  #2A1810;
+
+  --green-600: var(--peach-400);
+  --green-500: var(--peach-300);
+  --green-100: var(--peach-100);
+  --green-50:  var(--peach-50);
+  --ink-900:   #FFF7F2;
+  --ink-500:   #C8B8AE;
+  --white:     #1C1410;
   
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.45);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -48,10 +65,9 @@
   --coral: #F87171;
   --violet: #A78BFA;
 
-  --bg-page: var(--green-50);
+  --bg-page: var(--peach-50);
   --bg-card: var(--white);
-  --bg-mint: var(--green-100);
-  --border-subtle: rgba(61, 183, 114, 0.2);
-  --border-mint: rgba(61, 183, 114, 0.3);
+  --bg-mint: var(--peach-100);
+  --border-subtle: rgba(245, 199, 176, 0.15);
+  --border-mint: rgba(245, 199, 176, 0.25);
 }
-

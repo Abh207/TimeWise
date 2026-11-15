@@ -120,7 +120,7 @@ export const DashboardPage: React.FC = () => {
 
         <div className="relative z-10">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-400 mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-lime-400" />
+            <Sparkles className="w-3.5 h-3.5 text-peach-300" />
             <span>Cycle: {rotationCycle} &bull; Productivity Status: Optimal</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -146,7 +146,7 @@ export const DashboardPage: React.FC = () => {
           <div className="p-3 rounded-xl bg-brand-500/15 border border-brand-500/30 text-center">
             <div className="text-[10px] uppercase font-bold text-brand-300">Daily Score</div>
             <div className="text-base sm:text-lg font-black text-brand-300 mt-0.5">88%</div>
-            <div className="text-[10px] text-lime-400 font-semibold">+6% vs avg</div>
+            <div className="text-[10px] text-peach-300 font-semibold">+6% vs avg</div>
           </div>
         </div>
       </div>
@@ -186,7 +186,7 @@ export const DashboardPage: React.FC = () => {
             <div className="text-sm font-bold text-white truncate">
               {nextEvent ? nextEvent.title : 'All commitments finished'}
             </div>
-            <div className="text-xs text-lime-400 font-medium mt-1">
+            <div className="text-xs text-peach-300 font-medium mt-1">
               {countdownStr}
             </div>
           </div>
@@ -200,9 +200,9 @@ export const DashboardPage: React.FC = () => {
         <div className="p-4 rounded-2xl glass-card border border-white/10 flex flex-col justify-between">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
             <span className="font-medium flex items-center gap-1.5">
-              <CheckSquare className="w-4 h-4 text-emerald-400" /> Tasks Done
+              <CheckSquare className="w-4 h-4 text-peach-300" /> Tasks Done
             </span>
-            <span className="text-xs font-bold text-emerald-400">{taskProgressPct}%</span>
+            <span className="text-xs font-bold text-peach-300">{taskProgressPct}%</span>
           </div>
           <div>
             <div className="text-xl font-extrabold text-white">
@@ -210,7 +210,7 @@ export const DashboardPage: React.FC = () => {
             </div>
             <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden mt-2">
               <div 
-                className="bg-emerald-500 h-full rounded-full transition-all duration-500" 
+                className="bg-peach-400 h-full rounded-full transition-all duration-500" 
                 style={{ width: `${taskProgressPct}%` }}
               />
             </div>
@@ -323,7 +323,7 @@ export const DashboardPage: React.FC = () => {
                         }}
                         className={`mt-0.5 w-5 h-5 rounded-lg border flex items-center justify-center transition-colors ${
                           isDone
-                            ? 'bg-emerald-500 border-emerald-500 text-white'
+                            ? 'bg-peach-300 border-peach-300 text-on-peach'
                             : 'border-slate-500 hover:border-brand-400 text-transparent'
                         }`}
                         title={isDone ? 'Mark as incomplete' : 'Mark activity completed'}
@@ -371,7 +371,7 @@ export const DashboardPage: React.FC = () => {
                     <div className="text-right flex-shrink-0">
                       <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
                         isDone
-                          ? 'bg-emerald-500/20 text-emerald-300'
+                          ? 'bg-peach-300/20 text-peach-300'
                           : 'bg-brand-500/20 text-brand-300'
                       }`}>
                         {event.status}
@@ -387,12 +387,12 @@ export const DashboardPage: React.FC = () => {
           <div className="p-4 rounded-2xl glass-card border border-brand-500/30 bg-gradient-to-r from-brand-950/40 to-dark-900 flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-300 flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-5 h-5 text-lime-400" />
+                <Sparkles className="w-5 h-5 text-peach-300" />
               </div>
               <div>
                 <div className="text-xs font-bold text-white flex items-center gap-2">
                   <span>Smart Planner Engine Active</span>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-lime-500/20 text-lime-300 font-mono">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-peach-300/20 text-peach-300 font-mono">
                     Explainable AI
                   </span>
                 </div>
@@ -416,7 +416,7 @@ export const DashboardPage: React.FC = () => {
           <div className="p-5 rounded-2xl glass-card border border-white/10">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <CheckSquare className="w-5 h-5 text-emerald-400" />
+                <CheckSquare className="w-5 h-5 text-peach-300" />
                 <h3 className="text-base font-bold text-white">Today's Tasks</h3>
               </div>
               <button
@@ -538,7 +538,7 @@ export const DashboardPage: React.FC = () => {
                         }}
                         className={`w-6 h-6 rounded-lg border flex items-center justify-center font-bold text-xs transition-colors ${
                           isDone
-                            ? 'bg-emerald-500 border-emerald-500 text-white'
+                            ? 'bg-peach-300 border-peach-300 text-on-peach'
                             : 'border-slate-600 hover:border-brand-400 text-transparent'
                         }`}
                       >

@@ -175,7 +175,7 @@ export const StreaksPage: React.FC = () => {
                   }}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                     isDoneToday
-                      ? 'bg-emerald-600 text-white'
+                      ? 'bg-peach-300 text-on-peach'
                       : 'bg-brand-600 hover:bg-brand-500 text-white shadow-glow-violet'
                   }`}
                 >
@@ -227,7 +227,7 @@ export const StreaksPage: React.FC = () => {
               <div>
                 <div className="font-bold text-xs text-white flex items-center gap-1.5">
                   {ach.title}
-                  {ach.unlocked && <span className="text-[9px] px-1.5 rounded bg-emerald-500/20 text-emerald-300">Unlocked</span>}
+                  {ach.unlocked && <span className="text-[9px] px-1.5 rounded bg-peach-300/20 text-peach-300">Unlocked</span>}
                 </div>
                 <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">{ach.desc}</p>
               </div>

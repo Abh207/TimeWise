@@ -90,7 +90,7 @@ export const ReviewsPage: React.FC = () => {
       <div className="p-6 rounded-2xl glass-card border border-brand-500/30 bg-gradient-to-r from-dark-900 via-dark-850 to-brand-950/20 space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-brand-300 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-4 h-4 text-lime-400" />
+            <Sparkles className="w-4 h-4 text-peach-300" />
             <span>Telemetry Summary Generated From Recorded Data</span>
           </div>
           <span className="text-[10px] text-slate-400 font-mono">Live Telemetry Sync</span>
@@ -111,7 +111,7 @@ export const ReviewsPage: React.FC = () => {
           </div>
           <div className="p-3.5 rounded-xl bg-dark-950/60 border border-white/5">
             <div className="text-slate-400">Adherence Score</div>
-            <div className="font-extrabold text-lg text-lime-400 mt-1">91% Superior</div>
+            <div className="font-extrabold text-lg text-peach-300 mt-1">91% Superior</div>
           </div>
         </div>
       </div>
@@ -186,7 +186,7 @@ export const ReviewsPage: React.FC = () => {
 
         <div className="flex items-center justify-between pt-4 border-t border-white/10">
           {isSaved && (
-            <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
+            <span className="text-xs text-peach-300 font-semibold flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4" /> Reflection saved to Life Records!
             </span>
           )}

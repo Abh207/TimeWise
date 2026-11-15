@@ -87,7 +87,7 @@ export const SCHEDULE_ITEMS: MeetingItem[] = [
     title: 'Study Group – Algorithms',
     timeRange: '15:00 – 16:30',
     type: 'study',
-    badgeColor: '#2E9E5E',
+    badgeColor: '#D9805A',
   },
   {
     id: 's4',
@@ -189,10 +189,10 @@ export const TASK_COUNT_SETS: TaskCountDataset[] = [
     counts: [11, 14, 9, 15, 12],
     avatars: [
       { name: 'Alex Chen', initials: 'AC', bg: '#4DA3FF' },
-      { name: 'Maya Patel', initials: 'MP', bg: '#C8F03C', text: '#141414' },
+      { name: 'Maya Patel', initials: 'MP', bg: '#F5C7B0', text: '#2A1810' },
       { name: 'Sam Wilson', initials: 'SW', bg: '#FF7A6B' },
       { name: 'Elena Rostova', initials: 'ER', bg: '#8B7CF6' },
-      { name: 'David Kim', initials: 'DK', bg: '#3DB772' },
+      { name: 'David Kim', initials: 'DK', bg: '#EFAE8F', text: '#2A1810' },
     ],
   },
   {
@@ -200,9 +200,9 @@ export const TASK_COUNT_SETS: TaskCountDataset[] = [
     change: '+8',
     counts: [10, 12, 14, 11, 13],
     avatars: [
-      { name: 'Maya Patel', initials: 'MP', bg: '#C8F03C', text: '#141414' },
+      { name: 'Maya Patel', initials: 'MP', bg: '#F5C7B0', text: '#2A1810' },
       { name: 'Alex Chen', initials: 'AC', bg: '#4DA3FF' },
-      { name: 'David Kim', initials: 'DK', bg: '#3DB772' },
+      { name: 'David Kim', initials: 'DK', bg: '#EFAE8F', text: '#2A1810' },
       { name: 'Sam Wilson', initials: 'SW', bg: '#FF7A6B' },
       { name: 'Elena Rostova', initials: 'ER', bg: '#8B7CF6' },
     ],
@@ -215,8 +215,8 @@ export const TASK_COUNT_SETS: TaskCountDataset[] = [
       { name: 'Elena Rostova', initials: 'ER', bg: '#8B7CF6' },
       { name: 'Sam Wilson', initials: 'SW', bg: '#FF7A6B' },
       { name: 'Alex Chen', initials: 'AC', bg: '#4DA3FF' },
-      { name: 'Maya Patel', initials: 'MP', bg: '#C8F03C', text: '#141414' },
-      { name: 'David Kim', initials: 'DK', bg: '#3DB772' },
+      { name: 'Maya Patel', initials: 'MP', bg: '#F5C7B0', text: '#2A1810' },
+      { name: 'David Kim', initials: 'DK', bg: '#EFAE8F', text: '#2A1810' },
     ],
   },
 ];

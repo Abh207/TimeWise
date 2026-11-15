@@ -86,11 +86,11 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
   // ==========================================
   if (isAppMode) {
     return (
-      <footer className="w-full bg-[#FFFFFF] dark:bg-[#122218] border-t border-[rgba(46,158,94,0.15)] py-4 px-4 sm:px-8 mt-auto text-xs text-[#6B7C72] dark:text-[#9AB3A4] relative z-20 transition-colors">
+      <footer className="w-full bg-[#FFFFFF] dark:bg-[#1A120E] border-t border-[rgba(245,199,176,0.25)] py-4 px-4 sm:px-8 mt-auto text-xs text-[#6B7C72] dark:text-[#9AB3A4] relative z-20 transition-colors">
         <div className="max-w-[1360px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left: Clock, Date & Weather */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6F4EA] dark:bg-[#1A3122] text-[#2E9E5E] font-medium text-xs">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBE3D6] dark:bg-[#2C1E18] text-[#A24E27] dark:text-[#F5C7B0] font-medium text-xs">
               <Clock className="w-3.5 h-3.5" />
               <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
             </div>
@@ -107,19 +107,19 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
 
           {/* Center: Quote */}
           <div className="text-center max-w-md italic text-[#1B2B22] dark:text-[#F0FDF4] flex items-center justify-center gap-2 px-2 text-[11px] truncate">
-            <Sparkles className="w-3.5 h-3.5 text-[#2E9E5E] shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 text-[#A24E27] dark:text-[#F5C7B0] shrink-0" />
             <span className="truncate">"{MOTIVATIONAL_QUOTES[quoteIndex]}"</span>
           </div>
 
           {/* Right: Quick Links & Back to Top */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#2E9E5E] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#F5C7B0] animate-pulse" />
               <span className="text-[11px]">All Systems Operational</span>
             </div>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F4EA] dark:bg-[#1A3122] text-[#2E9E5E] hover:bg-[#2E9E5E] hover:text-white transition-all text-[11px] font-semibold"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBE3D6] dark:bg-[#2C1E18] text-[#A24E27] dark:text-[#F5C7B0] hover:bg-[#F5C7B0] hover:text-[#2A1810] transition-all text-[11px] font-semibold"
               title="Back to top"
             >
               <ArrowUp className="w-3 h-3" />
@@ -132,17 +132,17 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
   }
 
   // ==========================================
-  // FULL PUBLIC CLEAN GREEN FOOTER
+  // FULL PUBLIC CLEAN PEACH FOOTER
   // ==========================================
   return (
-    <footer className="w-full bg-gradient-to-b from-[#F3FAF5] to-[#FFFFFF] dark:from-[#0C1812] dark:to-[#122218] border-t border-[rgba(46,158,94,0.15)] text-sm text-[#6B7C72] dark:text-[#9AB3A4] transition-colors relative overflow-hidden">
+    <footer className="w-full bg-gradient-to-b from-[#FDF1EA] to-[#FFFFFF] dark:from-[#140F0D] dark:to-[#1A120E] border-t border-[rgba(245,199,176,0.25)] text-sm text-[#6B7C72] dark:text-[#9AB3A4] transition-colors relative overflow-hidden">
       <div className="max-w-[1360px] mx-auto px-6 sm:px-10 pt-16 pb-12 space-y-12 relative z-10">
         {/* 4 Clean Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Col 1: Brand & Newsletter (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-2xl bg-[#E6F4EA] dark:bg-[#1A3122] border border-[rgba(46,158,94,0.3)] flex items-center justify-center text-[#2E9E5E]">
+              <div className="w-9 h-9 rounded-2xl bg-[#FBE3D6] dark:bg-[#2C1E18] border border-[rgba(245,199,176,0.35)] flex items-center justify-center text-[#A24E27] dark:text-[#F5C7B0]">
                 <Clock className="w-5 h-5" />
               </div>
               <span className="text-xl font-bold text-[#1B2B22] dark:text-[#F0FDF4] font-sans tracking-tight">TimeWise</span>
@@ -152,12 +152,12 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
               A fresh, intelligent timetable and daily productivity companion designed to protect your energy and clarify your routines.
             </p>
 
-            {/* Newsletter: Pill-shaped input with green "Join" button */}
+            {/* Newsletter: Pill-shaped input with peach "Join" button */}
             <form onSubmit={handleSubscribe} className="space-y-2 max-w-sm pt-2">
               <span className="text-xs font-semibold text-[#1B2B22] dark:text-[#F0FDF4] block">
                 Join our weekly productivity dispatch
               </span>
-              <div className="flex items-center rounded-full bg-white dark:bg-[#1A3122] border border-[rgba(46,158,94,0.25)] focus-within:border-[#2E9E5E] focus-within:ring-2 focus-within:ring-[#2E9E5E]/20 p-1.5 shadow-sm transition-all">
+              <div className="flex items-center rounded-full bg-white dark:bg-[#2C1E18] border border-[rgba(245,199,176,0.35)] focus-within:border-[#F5C7B0] focus-within:ring-2 focus-within:ring-[#F5C7B0]/30 p-1.5 shadow-sm transition-all">
                 <input
                   type="email"
                   required
@@ -168,14 +168,14 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-full bg-[#2E9E5E] hover:bg-[#3DB772] text-white font-semibold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+                  className="px-5 py-2 rounded-full bg-[#F5C7B0] hover:bg-[#EFAE8F] text-[#2A1810] font-semibold text-xs flex items-center gap-1.5 transition-all shadow-sm"
                 >
                   {isSubscribed ? <Check className="w-3.5 h-3.5" /> : <Send className="w-3.5 h-3.5" />}
                   <span>{isSubscribed ? 'Joined' : 'Join'}</span>
                 </button>
               </div>
               {isSubscribed && (
-                <p className="text-[11px] text-[#2E9E5E] flex items-center gap-1 font-medium">
+                <p className="text-[11px] text-[#A24E27] dark:text-[#F5C7B0] flex items-center gap-1 font-medium">
                   <CheckCircle2 className="w-3 h-3" /> Subscribed successfully!
                 </p>
               )}
@@ -185,17 +185,17 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
           {/* Col 2: Product */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#2E9E5E]" />
+              <span className="w-2 h-2 rounded-full bg-[#F5C7B0]" />
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#1B2B22] dark:text-[#F0FDF4]">Product</h4>
             </div>
             <ul className="space-y-2 text-xs">
-              <li><Link to="/home" className="hover:text-[#2E9E5E] transition-colors">Home Hub</Link></li>
-              <li><Link to="/features" className="hover:text-[#2E9E5E] transition-colors font-medium text-[#2E9E5E]">Features Gallery</Link></li>
-              <li><Link to="/app/timetable" className="hover:text-[#2E9E5E] transition-colors">Academic Timetable</Link></li>
-              <li><Link to="/app/smart-planner" className="hover:text-[#2E9E5E] transition-colors">Smart AI Planner</Link></li>
-              <li><Link to="/app/tasks" className="hover:text-[#2E9E5E] transition-colors">Eisenhower Tasks</Link></li>
-              <li><Link to="/app/focus" className="hover:text-[#2E9E5E] transition-colors">Focus Chamber</Link></li>
-              <li><Link to="/app/streaks" className="hover:text-[#2E9E5E] transition-colors">Streaks & Grace Days</Link></li>
+              <li><Link to="/home" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Home Hub</Link></li>
+              <li><Link to="/features" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors font-medium text-[#A24E27] dark:text-[#F5C7B0]">Features Gallery</Link></li>
+              <li><Link to="/app/timetable" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Academic Timetable</Link></li>
+              <li><Link to="/app/smart-planner" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Smart AI Planner</Link></li>
+              <li><Link to="/app/tasks" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Eisenhower Tasks</Link></li>
+              <li><Link to="/app/focus" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Focus Chamber</Link></li>
+              <li><Link to="/app/streaks" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Streaks & Grace Days</Link></li>
             </ul>
           </div>
 
@@ -206,10 +206,10 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#1B2B22] dark:text-[#F0FDF4]">Resources</h4>
             </div>
             <ul className="space-y-2 text-xs">
-              <li><Link to="/about" className="hover:text-[#2E9E5E] transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-[#2E9E5E] transition-colors">Help & Contact</Link></li>
-              <li><Link to="/features" className="hover:text-[#2E9E5E] transition-colors">Release Notes</Link></li>
-              <li><Link to="/signin" className="hover:text-[#2E9E5E] transition-colors">Interactive Demo</Link></li>
+              <li><Link to="/about" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Help & Contact</Link></li>
+              <li><Link to="/features" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Release Notes</Link></li>
+              <li><Link to="/signin" className="hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors">Interactive Demo</Link></li>
             </ul>
           </div>
 
@@ -219,7 +219,7 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
               <span className="w-2 h-2 rounded-full bg-[#8B7CF6]" />
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#1B2B22] dark:text-[#F0FDF4]">Connect</h4>
             </div>
-            {/* Social icons in round mint buttons with hover color fill */}
+            {/* Social icons in round peach buttons with hover color fill */}
             <div className="flex flex-wrap gap-2 pt-1">
               {[
                 { icon: Share2, label: 'Share', href: '#' },
@@ -233,7 +233,7 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
                     key={idx}
                     href={item.href}
                     aria-label={item.label}
-                    className="w-9 h-9 rounded-full bg-[#E6F4EA] dark:bg-[#1A3122] text-[#2E9E5E] hover:bg-[#2E9E5E] hover:text-white flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"
+                    className="w-9 h-9 rounded-full bg-[#FBE3D6] dark:bg-[#2C1E18] text-[#A24E27] dark:text-[#F5C7B0] hover:bg-[#F5C7B0] hover:text-[#2A1810] flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -248,16 +248,16 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[rgba(46,158,94,0.15)] flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <div className="pt-8 border-t border-[rgba(245,199,176,0.25)] flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
           {/* Status, Clock, Quote */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
             <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#2E9E5E] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#F5C7B0] animate-pulse" />
               <span className="font-semibold text-[#1B2B22] dark:text-[#F0FDF4]">All Systems Operational</span>
             </div>
             <span className="text-[#6B7C72] dark:text-[#9AB3A4] hidden sm:inline">&bull;</span>
             <div className="flex items-center gap-1.5 text-[#6B7C72] dark:text-[#9AB3A4]">
-              <Clock className="w-3.5 h-3.5 text-[#2E9E5E]" />
+              <Clock className="w-3.5 h-3.5 text-[#A24E27] dark:text-[#F5C7B0]" />
               <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
             </div>
             <span className="text-[#6B7C72] dark:text-[#9AB3A4] hidden sm:inline">&bull;</span>
@@ -272,7 +272,7 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
             <span>&bull;</span>
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="flex items-center gap-1.5 text-[#6B7C72] dark:text-[#9AB3A4] hover:text-[#2E9E5E] transition-colors"
+              className="flex items-center gap-1.5 text-[#6B7C72] dark:text-[#9AB3A4] hover:text-[#A24E27] dark:hover:text-[#F5C7B0] transition-colors"
             >
               {theme === 'dark' ? <Sun className="w-3.5 h-3.5 text-[#F5A524]" /> : <Moon className="w-3.5 h-3.5 text-[#4DA3FF]" />}
               <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
@@ -280,7 +280,7 @@ export const Footer: React.FC<FooterProps> = ({ compact }) => {
             <span>&bull;</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1 text-[#2E9E5E] hover:underline font-semibold"
+              className="flex items-center gap-1 text-[#A24E27] dark:text-[#F5C7B0] hover:underline font-semibold"
             >
               <span>Back to top</span>
               <ArrowUp className="w-3.5 h-3.5" />

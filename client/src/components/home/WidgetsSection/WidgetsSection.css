@@ -59,14 +59,15 @@
   }
 }
 
-/* Diagonal Striped Bar for Active Time */
-.striped-bar-green {
+/* Diagonal Striped Bar for Active Time (Peach) */
+.striped-bar-green,
+.striped-bar-peach {
   background-image: repeating-linear-gradient(
     -45deg,
-    #2E9E5E,
-    #2E9E5E 6px,
-    #3DB772 6px,
-    #3DB772 12px
+    var(--peach-600, #D9805A),
+    var(--peach-600, #D9805A) 6px,
+    var(--peach-400, #EFAE8F) 6px,
+    var(--peach-400, #EFAE8F) 12px
   );
 }
 

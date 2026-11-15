@@ -78,7 +78,7 @@ export const NotificationsPage: React.FC = () => {
       {/* Web Notification Permission Card */}
       <div className="p-4 rounded-2xl glass-card border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
         <div className="flex items-center gap-2.5">
-          <ShieldCheck className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+          <ShieldCheck className="w-5 h-5 text-peach-300 flex-shrink-0" />
           <div>
             <div className="font-semibold text-white">Browser Push & Background Notifications</div>
             <div className="text-slate-400 text-[11px]">
@@ -170,7 +170,7 @@ export const NotificationsPage: React.FC = () => {
                               reviewMissedActivity(notif.relatedEntityId!, 'done');
                               triggerConfetti();
                             }}
-                            className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg text-xs"
+                            className="px-3 py-1.5 bg-peach-300 hover:bg-peach-400 text-on-peach font-semibold rounded-lg text-xs"
                           >
                             Mark Done (+50 XP)
                           </button>

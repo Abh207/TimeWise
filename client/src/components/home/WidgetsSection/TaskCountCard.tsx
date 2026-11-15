@@ -10,7 +10,7 @@ export const TaskCountCard: React.FC = () => {
   const maxSegments = 15;
 
   return (
-    <div className="rounded-[24px] p-4 sm:p-5 bg-[#0B0B0B] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col justify-between">
+    <div className="rounded-[24px] p-[clamp(16px,1.4vw,24px)] bg-[#0B0B0B] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col justify-between">
       {/* Header */}
       <div>
         <div className="flex items-center justify-between">
@@ -24,12 +24,12 @@ export const TaskCountCard: React.FC = () => {
           </div>
         </div>
 
-        {/* Big White Number with Green Increment */}
+        {/* Big White Number with Peach Increment */}
         <div className="flex items-baseline gap-2 mt-1.5">
           <span className="text-3xl font-[800] tracking-tight text-white font-mono">
             {current.total}
           </span>
-          <span className="text-xs font-bold text-[#C8F03C] inline-flex items-center gap-0.5">
+          <span className="text-xs font-bold text-[#F5C7B0] inline-flex items-center gap-0.5">
             <ArrowUpRight className="w-3.5 h-3.5" />
             <span>{current.change}</span>
           </span>
@@ -41,7 +41,7 @@ export const TaskCountCard: React.FC = () => {
         {/* Tooltip on hover */}
         <div className="h-5 flex items-center justify-center">
           {hoveredBarIndex !== null && (
-            <span className="text-[10px] font-mono font-bold text-[#C8F03C] bg-white/10 px-2 py-0.5 rounded-full animate-fade-in">
+            <span className="text-[10px] font-mono font-bold text-[#F5C7B0] bg-white/10 px-2 py-0.5 rounded-full animate-fade-in">
               {current.counts[hoveredBarIndex]} tasks completed
             </span>
           )}
@@ -95,21 +95,24 @@ export const TaskCountCard: React.FC = () => {
           </div>
         </div>
 
-        {/* 5 Round Avatar Circles below Bars */}
-        <div className="flex items-center justify-between pl-6 pr-1 pt-2">
-          {current.avatars.map((avatar, idx) => (
-            <div
-              key={idx}
-              title={avatar.name}
-              className="w-6 h-6 rounded-full border border-black/40 flex items-center justify-center text-[9px] font-bold shadow-xs select-none"
-              style={{
-                backgroundColor: avatar.bg,
-                color: avatar.text || '#FFFFFF',
-              }}
-            >
-              {avatar.initials}
-            </div>
-          ))}
+        {/* 5 Round Avatar Circles below Bars aligned directly under each bar */}
+        <div className="flex items-center gap-2.5 pt-2">
+          <div className="w-[18px] select-none shrink-0" />
+          <div className="flex-1 flex items-center justify-between gap-2.5">
+            {current.avatars.map((avatar, idx) => (
+              <div
+                key={idx}
+                title={avatar.name}
+                className="w-6 h-6 rounded-full border border-black/40 flex items-center justify-center text-[9px] font-bold shadow-xs select-none mx-auto"
+                style={{
+                  backgroundColor: avatar.bg,
+                  color: avatar.text || '#FFFFFF',
+                }}
+              >
+                {avatar.initials}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -121,9 +124,9 @@ export const TaskCountCard: React.FC = () => {
             type="button"
             onClick={() => setDatasetIndex(i)}
             aria-label={`View dataset ${i + 1}`}
-            className={`transition-all duration-200 rounded-full focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C8F03C] ${
+            className={`transition-all duration-200 rounded-full focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F5C7B0] ${
               i === datasetIndex
-                ? 'w-5 h-1.5 bg-[#C8F03C]'
+                ? 'w-5 h-1.5 bg-[#F5C7B0]'
                 : i === 1 && datasetIndex !== 1
                 ? 'w-3 h-1.5 bg-white/20 hover:bg-white/40'
                 : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'

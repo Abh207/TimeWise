@@ -2,30 +2,30 @@ import React, { useState, useEffect, useRef } from 'react';
 import { format } from 'date-fns';
 
 interface WatchVisualProps {
-  currentLabel: string;
+  currentLabel?: string;
 }
 
-export const WatchVisual: React.FC<WatchVisualProps> = ({ currentLabel }) => {
+export const WatchVisual: React.FC<WatchVisualProps> = () => {
   const [time, setTime] = useState(new Date());
   const [parallax, setParallax] = useState({ rotateX: 0, rotateY: 0 });
   const [reducedMotion, setReducedMotion] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Update real-time clock every second
+  // Update clock every second
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  // Check reduced motion & mouse parallax
+  // Check prefers-reduced-motion & mouse parallax (only hover:hover and pointer:fine, max ±3.5°)
   useEffect(() => {
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setReducedMotion(motionQuery.matches);
     const handleMotion = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     motionQuery.addEventListener('change', handleMotion);
 
-    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouch || motionQuery.matches) {
+    const mouseQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    if (!mouseQuery.matches || motionQuery.matches) {
       return () => motionQuery.removeEventListener('change', handleMotion);
     }
 
@@ -34,10 +34,10 @@ export const WatchVisual: React.FC<WatchVisualProps> = ({ currentLabel }) => {
       const centerY = window.innerHeight / 2;
       const deltaX = (e.clientX - centerX) / centerX;
       const deltaY = (e.clientY - centerY) / centerY;
-      // Max ±5-6 degrees on top of base tilt
+      // Max ±3.5°
       setParallax({
-        rotateX: -deltaY * 5,
-        rotateY: deltaX * 5,
+        rotateX: -deltaY * 3.5,
+        rotateY: deltaX * 3.5,
       });
     };
 
@@ -48,7 +48,7 @@ export const WatchVisual: React.FC<WatchVisualProps> = ({ currentLabel }) => {
     };
   }, []);
 
-  // Calculate analog hand degrees
+  // Real analog hand degrees
   const seconds = time.getSeconds();
   const minutes = time.getMinutes();
   const hours = time.getHours();
@@ -57,242 +57,314 @@ export const WatchVisual: React.FC<WatchVisualProps> = ({ currentLabel }) => {
   const minuteDeg = ((minutes + seconds / 60) / 60) * 360;
   const hourDeg = (((hours % 12) + minutes / 60) / 12) * 360;
 
+  // Real date string "Sun 15"
+  const dateStr = format(time, 'EEE d');
+
   return (
-    <div 
+    <div
       ref={containerRef}
-      className="relative flex items-center justify-center select-none short-shrink"
-      style={{ perspective: '1200px' }}
+      className="absolute select-none pointer-events-none"
+      style={{
+        left: 'calc(1090 * var(--s))',
+        top: 'calc(440 * var(--s))',
+        transform: 'translate(-50%, -50%)',
+        width: 'calc(640 * var(--s))',
+        height: 'calc(900 * var(--s))',
+        zIndex: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
     >
-      {/* 1. Soft Round White Glow Behind */}
-      <div 
-        aria-hidden="true" 
-        className="absolute w-[320px] sm:w-[400px] h-[320px] sm:h-[400px] rounded-full bg-white/80 blur-3xl pointer-events-none -z-20" 
-      />
-
-      {/* 2. Blurred Oval Shadow Under Watch */}
-      <div 
+      {/* 1. Blurred Oval Shadow Under Watch */}
+      <div
         aria-hidden="true"
-        className="absolute bottom-[-28px] w-44 sm:w-56 h-8 bg-[#3C280A]/16 blur-xl rounded-full pointer-events-none -z-20 transform scale-y-60 rotate-[12deg]"
-      />
-
-      {/* 3. Orbit Ring (Behind Half) */}
-      <div 
-        aria-hidden="true"
-        className="absolute w-[310px] sm:w-[380px] h-[140px] sm:h-[170px] pointer-events-none -z-10"
+        className="absolute pointer-events-none -z-20 rounded-full"
         style={{
-          transform: 'rotateZ(28deg) rotateX(65deg)',
-          transformStyle: 'preserve-3d',
+          left: '50%',
+          bottom: 'calc(60 * var(--s))',
+          transform: 'translateX(-50%) rotate(14deg)',
+          width: 'calc(450 * var(--s))',
+          height: 'calc(60 * var(--s))',
+          background: 'rgba(90, 60, 20, 0.18)',
+          filter: 'blur(calc(28 * var(--s)))',
         }}
+      />
+
+      {/* 2. Gentle Idle Float Wrapper */}
+      <div 
+        className={reducedMotion ? 'w-full h-full flex items-center justify-center' : 'w-full h-full flex items-center justify-center animate-watch-float'}
       >
-        <svg viewBox="0 0 380 170" className="w-full h-full" fill="none">
-          <ellipse 
-            cx="190" 
-            cy="85" 
-            rx="180" 
-            ry="75" 
-            stroke="#C8F03C" 
-            strokeWidth="2.5" 
-            strokeDasharray="6 4"
-            opacity="0.85"
-          />
-        </svg>
-      </div>
-
-      {/* 4. Watch Body: Outer Float Wrapper (translateY only, doesn't fight rotation) */}
-      <div className={reducedMotion ? '' : 'animate-watch-float'}>
-        {/* Inner 3D Tilt Wrapper */}
+        {/* 3. 3D Tilt Wrapper with CSS Variables */}
         <div
-          className="relative transition-transform duration-300 ease-out"
+          className="relative"
           style={{
-            '--watch-tilt': '28deg',
-            transform: reducedMotion 
-              ? 'perspective(1200px) rotateZ(var(--watch-tilt, 28deg)) rotateY(-12deg) rotateX(8deg)' 
-              : `perspective(1200px) rotateZ(var(--watch-tilt, 28deg)) rotateY(${-12 + parallax.rotateY}deg) rotateX(${8 + parallax.rotateX}deg)`,
+            width: 'calc(450 * var(--s))',
+            height: 'calc(480 * var(--s))',
             transformStyle: 'preserve-3d',
-          } as React.CSSProperties}
+            transform: reducedMotion
+              ? 'perspective(1400px) rotateZ(var(--watch-rz, 14deg)) rotateY(var(--watch-ry, -18deg)) rotateX(var(--watch-rx, 6deg))'
+              : `perspective(1400px) rotateZ(calc(var(--watch-rz, 14deg))) rotateY(calc(var(--watch-ry, -18deg) + ${parallax.rotateY}deg)) rotateX(calc(var(--watch-rx, 6deg) + ${parallax.rotateX}deg))`,
+            transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
         >
-          {/* ======================================================== */}
-          {/* TOP STRAP (Pearl/Cream Rubber Belt with Grooves)         */}
-          {/* ======================================================== */}
-          <div 
+          {/* ========================================================== */}
+          {/* UPPER STRAP (Smooth Pearl Silicone, behind case, reaches top) */}
+          {/* ========================================================== */}
+          <div
             aria-hidden="true"
-            className="absolute left-1/2 -translate-x-1/2 -top-[68px] sm:-top-[78px] w-[105px] sm:w-[120px] lg:w-[126px] h-[78px] sm:h-[88px] rounded-t-[20px] border-l border-white/70 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-3px_6px_rgba(0,0,0,0.08),0_4px_12px_rgba(60,40,10,0.10)] -z-10 overflow-hidden flex flex-col justify-end pb-3"
+            className="absolute left-1/2 pointer-events-none -z-10 overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, #F0ECE4 0%, #E9E4DA 40%, #DFD8CB 80%, #D9D2C5 100%)',
-              WebkitMaskImage: 'linear-gradient(to top, black 55%, transparent 100%)',
-              maskImage: 'linear-gradient(to top, black 55%, transparent 100%)',
+              width: 'calc(268 * var(--s))',
+              height: 'calc(260 * var(--s))',
+              top: 'calc(-230 * var(--s))',
+              transform: 'translateX(-50%)',
+              borderTopLeftRadius: 'calc(42 * var(--s))',
+              borderTopRightRadius: 'calc(42 * var(--s))',
+              background: 'linear-gradient(135deg, #F3EDE5 0%, #E8E1D6 50%, #DDD5C9 100%)',
+              boxShadow: 'inset 0 calc(2 * var(--s)) calc(4 * var(--s)) rgba(255,255,255,0.9), inset calc(1 * var(--s)) 0 calc(2 * var(--s)) rgba(255,255,255,0.7), inset calc(-1 * var(--s)) 0 calc(3 * var(--s)) rgba(60,40,10,0.08)',
+              border: 'calc(1 * var(--s)) solid rgba(255,255,255,0.6)',
+              borderBottom: 'none',
             }}
           >
-            {/* 5 Thin Horizontal Grooves with White Highlights */}
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="w-full flex flex-col items-center my-[2.5px] px-2.5">
-                <div className="w-full h-[1.5px] bg-black/10 rounded-full" />
-                <div className="w-full h-[1px] bg-white/70 rounded-full" />
-              </div>
-            ))}
-          </div>
-
-          {/* Top Metal Lugs / Connection Joint */}
-          <div 
-            aria-hidden="true" 
-            className="absolute left-1/2 -translate-x-1/2 -top-[3px] w-[114px] sm:w-[130px] flex justify-between px-1 pointer-events-none z-10"
-          >
-            <div className="w-2.5 h-1.5 rounded-t-xs bg-gradient-to-b from-[#E6E0D8] to-[#C9C2B7] border border-white/50 shadow-2xs" />
-            <div className="w-2.5 h-1.5 rounded-t-xs bg-gradient-to-b from-[#E6E0D8] to-[#C9C2B7] border border-white/50 shadow-2xs" />
-          </div>
-
-          {/* ======================================================== */}
-          {/* BOTTOM STRAP (Pearl/Cream Rubber Belt with Grooves)      */}
-          {/* ======================================================== */}
-          <div 
-            aria-hidden="true"
-            className="absolute left-1/2 -translate-x-1/2 -bottom-[68px] sm:-bottom-[78px] w-[105px] sm:w-[120px] lg:w-[126px] h-[78px] sm:h-[88px] rounded-b-[20px] border-l border-white/70 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-3px_6px_rgba(0,0,0,0.08),0_4px_12px_rgba(60,40,10,0.10)] -z-10 overflow-hidden flex flex-col justify-start pt-3"
-            style={{
-              background: 'linear-gradient(135deg, #F0ECE4 0%, #E9E4DA 40%, #DFD8CB 80%, #D9D2C5 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
-              maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
-            }}
-          >
-            {/* 5 Thin Horizontal Grooves with White Highlights */}
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="w-full flex flex-col items-center my-[2.5px] px-2.5">
-                <div className="w-full h-[1.5px] bg-black/10 rounded-full" />
-                <div className="w-full h-[1px] bg-white/70 rounded-full" />
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Metal Lugs / Connection Joint */}
-          <div 
-            aria-hidden="true" 
-            className="absolute left-1/2 -translate-x-1/2 -bottom-[3px] w-[114px] sm:w-[130px] flex justify-between px-1 pointer-events-none z-10"
-          >
-            <div className="w-2.5 h-1.5 rounded-b-xs bg-gradient-to-b from-[#C9C2B7] to-[#E6E0D8] border border-white/50 shadow-2xs" />
-            <div className="w-2.5 h-1.5 rounded-b-xs bg-gradient-to-b from-[#C9C2B7] to-[#E6E0D8] border border-white/50 shadow-2xs" />
-          </div>
-
-          {/* ======================================================== */}
-          {/* WATCH CASE (Pearl Ceramic with Glossy Bevel)             */}
-          {/* ======================================================== */}
-          <div className="relative w-[175px] sm:w-[200px] lg:w-[218px] h-[210px] sm:h-[245px] lg:h-[265px] rounded-[36px] sm:rounded-[42px] p-[8px] sm:p-[9px] bg-gradient-to-br from-[#FFFFFF] via-[#F4EFEA] to-[#DFD8CE] shadow-[0_18px_45px_rgba(50,35,15,0.18),inset_0_2px_4px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(0,0,0,0.08)] border border-white/90">
-            
-            {/* Digital Crown on Right */}
+            {/* Subtle top bevel highlight */}
             <div 
-              aria-hidden="true"
-              className="absolute -right-[7px] top-[55px] sm:top-[65px] w-[7px] sm:w-[8px] h-[32px] sm:h-[36px] rounded-r-md bg-gradient-to-b from-[#D4CCC0] via-[#FFFFFF] to-[#BDB4A8] border-y border-r border-[#B8AF9F] shadow-xs flex flex-col justify-between py-1"
+              className="w-full h-full opacity-60 pointer-events-none"
+              style={{
+                background: 'linear-gradient(90deg, rgba(255,255,255,0.8) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.04) 100%)',
+              }}
+            />
+          </div>
+
+          {/* ========================================================== */}
+          {/* LOWER STRAP (Down-left, longer, punch holes, soft fade)   */}
+          {/* ========================================================== */}
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 pointer-events-none -z-10"
+            style={{
+              width: 'calc(268 * var(--s))',
+              height: 'calc(340 * var(--s))',
+              bottom: 'calc(-300 * var(--s))',
+              transform: 'translateX(-50%)',
+              borderBottomLeftRadius: 'calc(50 * var(--s))',
+              borderBottomRightRadius: 'calc(50 * var(--s))',
+              background: 'linear-gradient(135deg, #EFE9E0 0%, #E3DCD1 55%, #D7CFC2 100%)',
+              boxShadow: 'inset 0 calc(-2 * var(--s)) calc(4 * var(--s)) rgba(0,0,0,0.08), inset calc(1 * var(--s)) 0 calc(2 * var(--s)) rgba(255,255,255,0.8), inset calc(-1 * var(--s)) 0 calc(3 * var(--s)) rgba(60,40,10,0.08)',
+              border: 'calc(1 * var(--s)) solid rgba(255,255,255,0.6)',
+              borderTop: 'none',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)',
+              maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)',
+            }}
+          >
+            {/* Column of 5 oval punch holes along the strap */}
+            <div 
+              className="flex flex-col items-center justify-start"
+              style={{
+                paddingTop: 'calc(32 * var(--s))',
+                gap: 'calc(16 * var(--s))',
+              }}
             >
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-[1px] bg-[#9F9585] mx-[1px]" />
+              {[...Array(5)].map((_, i) => (
+                <div
+                  key={i}
+                  className="rounded-full shadow-inner"
+                  style={{
+                    width: 'calc(10 * var(--s))',
+                    height: 'calc(18 * var(--s))',
+                    backgroundColor: '#C5BCAD',
+                    boxShadow: 'inset 0 calc(1 * var(--s)) calc(2 * var(--s)) rgba(0,0,0,0.3), 0 calc(1 * var(--s)) calc(1 * var(--s)) rgba(255,255,255,0.6)',
+                  }}
+                />
               ))}
             </div>
+          </div>
 
-            {/* Side Button below Crown */}
-            <div 
+          {/* ========================================================== */}
+          {/* WATCH CASE (Silver/Titanium Bezel, rounded square)        */}
+          {/* ========================================================== */}
+          <div
+            className="relative w-full h-full"
+            style={{
+              borderRadius: 'calc(96 * var(--s))',
+              padding: 'calc(16 * var(--s))',
+              background: 'linear-gradient(135deg, #D9D9DC 0%, #FFFFFF 22%, #F4F4F6 50%, #BDBDC2 100%)',
+              border: 'calc(1 * var(--s)) solid rgba(255,255,255,0.95)',
+              boxShadow: '0 calc(26 * var(--s)) calc(58 * var(--s)) rgba(50,35,15,0.18), inset 0 calc(3 * var(--s)) calc(5 * var(--s)) rgba(255,255,255,0.95), inset 0 calc(-3 * var(--s)) calc(6 * var(--s)) rgba(0,0,0,0.12)',
+            }}
+          >
+            {/* Crown on Right Edge with thin gold ring */}
+            <div
               aria-hidden="true"
-              className="absolute -right-[4px] top-[105px] sm:top-[120px] w-[4px] h-[22px] sm:h-[26px] rounded-r-sm bg-gradient-to-b from-[#CCC4B7] to-[#BDB4A7]"
+              className="absolute flex items-center justify-center overflow-hidden"
+              style={{
+                right: 'calc(-14 * var(--s))',
+                top: 'calc(146 * var(--s))',
+                width: 'calc(16 * var(--s))',
+                height: 'calc(65 * var(--s))',
+                borderTopRightRadius: 'calc(10 * var(--s))',
+                borderBottomRightRadius: 'calc(10 * var(--s))',
+                background: 'linear-gradient(to bottom, #DCDAE0 0%, #FFFFFF 30%, #C4C2C8 70%, #ABA9B0 100%)',
+                boxShadow: 'calc(1 * var(--s)) calc(2 * var(--s)) calc(4 * var(--s)) rgba(0,0,0,0.18)',
+                border: 'calc(0.5 * var(--s)) solid rgba(255,255,255,0.7)',
+              }}
+            >
+              {/* Thin gold ring in crown */}
+              <div 
+                className="w-full"
+                style={{
+                  height: 'calc(7 * var(--s))',
+                  background: 'linear-gradient(90deg, #F5B041 0%, var(--gold, #E8A93A) 50%, #D48E25 100%)',
+                  boxShadow: '0 0 calc(2 * var(--s)) rgba(232,169,58,0.6)',
+                }}
+              />
+            </div>
+
+            {/* Side button below crown */}
+            <div
+              aria-hidden="true"
+              className="absolute"
+              style={{
+                right: 'calc(-8 * var(--s))',
+                top: 'calc(260 * var(--s))',
+                width: 'calc(9 * var(--s))',
+                height: 'calc(44 * var(--s))',
+                borderTopRightRadius: 'calc(7 * var(--s))',
+                borderBottomRightRadius: 'calc(7 * var(--s))',
+                background: 'linear-gradient(to bottom, #CCC8C2 0%, #E6E2DB 50%, #B8B3AC 100%)',
+                boxShadow: 'calc(1 * var(--s)) calc(1 * var(--s)) calc(3 * var(--s)) rgba(0,0,0,0.15)',
+              }}
             />
 
-            {/* OLED Black Screen */}
-            <div className="relative w-full h-full rounded-[28px] sm:rounded-[34px] bg-[#0A0A0A] overflow-hidden flex flex-col items-center justify-between p-2.5 sm:p-3 border border-white/10 shadow-inner">
-              
-              {/* Glossy diagonal glass reflection */}
-              <div 
-                aria-hidden="true" 
-                className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent pointer-events-none" 
+            {/* ======================================================== */}
+            {/* BLACK OLED DISPLAY INSET                                 */}
+            {/* ======================================================== */}
+            <div
+              className="relative w-full h-full overflow-hidden flex flex-col items-center justify-center text-white"
+              style={{
+                borderRadius: 'calc(80 * var(--s))',
+                backgroundColor: '#0C0C0E',
+                boxShadow: 'inset 0 calc(4 * var(--s)) calc(10 * var(--s)) rgba(0,0,0,0.9), 0 0 0 calc(1 * var(--s)) rgba(0,0,0,0.6)',
+              }}
+            >
+              {/* Subtle diagonal glass reflection sweep */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.03) 42%, transparent 60%)',
+                }}
               />
 
-              {/* Top Screen: Slide badge & Date */}
-              <div className="relative z-10 w-full flex items-center justify-between px-0.5 pt-0.5">
-                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[#C8F03C]/20 text-[#C8F03C] border border-[#C8F03C]/40">
-                  {currentLabel}
-                </span>
-                <span className="text-[8.5px] sm:text-[9.5px] font-mono text-white/70 font-semibold">
-                  {format(time, 'EEE d')}
-                </span>
+              {/* Real Date Label "Sun 15" above center */}
+              <div
+                className="absolute font-semibold text-white pointer-events-none tracking-normal"
+                style={{
+                  top: 'calc(80 * var(--s))',
+                  fontSize: 'max(var(--min-font, 0px), calc(22 * var(--s)))',
+                  letterSpacing: '0.01em',
+                  opacity: 0.95,
+                }}
+              >
+                {dateStr}
               </div>
 
-              {/* Center Screen: Clock Face with Real-time Hands */}
-              <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center my-auto">
-                {/* 12 Hour Ticks */}
+              {/* 12 Thin Tick Marks near Edge */}
+              <div 
+                className="relative rounded-full flex items-center justify-center pointer-events-none"
+                style={{
+                  width: 'calc(310 * var(--s))',
+                  height: 'calc(310 * var(--s))',
+                }}
+              >
                 {[...Array(12)].map((_, i) => {
-                  const angle = i * 30;
-                  const isMain = i % 3 === 0;
+                  const deg = i * 30;
+                  const isQuarter = i % 3 === 0;
                   return (
                     <div
                       key={i}
-                      aria-hidden="true"
-                      className="absolute inset-0 flex items-start justify-center"
-                      style={{ transform: `rotate(${angle}deg)` }}
+                      className="absolute inset-0 flex justify-center items-start"
+                      style={{ transform: `rotate(${deg}deg)` }}
                     >
-                      <div 
-                        className={`rounded-full ${
-                          isMain 
-                            ? 'w-[1.5px] sm:w-[2px] h-[5px] sm:h-[6px] bg-white/90' 
-                            : 'w-[1px] h-[3.5px] bg-white/40'
-                        }`} 
+                      <div
+                        className="rounded-full"
+                        style={{
+                          marginTop: 'calc(7 * var(--s))',
+                          width: isQuarter ? 'calc(3.5 * var(--s))' : 'calc(2.2 * var(--s))',
+                          height: isQuarter ? 'calc(12 * var(--s))' : 'calc(7 * var(--s))',
+                          backgroundColor: isQuarter ? '#FFFFFF' : 'rgba(255,255,255,0.55)',
+                        }}
                       />
                     </div>
                   );
                 })}
 
-                {/* Hour Hand */}
+                {/* Hour Hand (White with rounded tip) */}
                 <div
-                  className="absolute w-[3px] h-[24px] sm:h-[32px] bg-white rounded-full shadow-md origin-bottom"
+                  className="absolute bg-white rounded-full shadow-md origin-bottom pointer-events-none"
                   style={{
                     bottom: '50%',
+                    width: 'calc(6.5 * var(--s))',
+                    height: 'calc(74 * var(--s))',
                     transform: `rotate(${hourDeg}deg)`,
-                    transition: 'transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44)',
+                    transition: reducedMotion ? 'none' : 'transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44)',
+                    boxShadow: '0 calc(2 * var(--s)) calc(8 * var(--s)) rgba(0,0,0,0.5)',
                   }}
                 />
 
-                {/* Minute Hand */}
+                {/* Minute Hand (White with rounded tip) */}
                 <div
-                  className="absolute w-[2px] h-[34px] sm:h-[44px] bg-white/95 rounded-full shadow-md origin-bottom"
+                  className="absolute bg-white rounded-full shadow-md origin-bottom pointer-events-none"
                   style={{
                     bottom: '50%',
+                    width: 'calc(4.5 * var(--s))',
+                    height: 'calc(106 * var(--s))',
                     transform: `rotate(${minuteDeg}deg)`,
-                    transition: 'transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44)',
+                    transition: reducedMotion ? 'none' : 'transform 0.15s cubic-bezier(0.4, 2.08, 0.55, 0.44)',
+                    boxShadow: '0 calc(2 * var(--s)) calc(8 * var(--s)) rgba(0,0,0,0.5)',
                   }}
                 />
 
-                {/* Second Hand (Thin Lime Needle) */}
+                {/* Amber Second Hand (#FFB020) with short tail and center cap */}
                 <div
-                  className="absolute w-[1px] sm:w-[1.5px] h-[40px] sm:h-[50px] bg-[#C8F03C] origin-bottom shadow-[0_0_5px_#C8F03C]"
+                  className="absolute origin-bottom pointer-events-none"
                   style={{
                     bottom: '50%',
+                    width: 'calc(2.5 * var(--s))',
+                    height: 'calc(124 * var(--s))',
+                    backgroundColor: '#FFB020',
                     transform: `rotate(${secondDeg}deg)`,
-                    transition: 'transform 0.15s ease-out',
+                    transition: reducedMotion ? 'none' : 'transform 0.08s linear',
+                    boxShadow: '0 calc(1 * var(--s)) calc(6 * var(--s)) rgba(255,176,32,0.4)',
                   }}
                 >
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#C8F03C]" />
+                  {/* Tail extending past center */}
+                  <div
+                    className="absolute rounded-full"
+                    style={{
+                      bottom: 'calc(-28 * var(--s))',
+                      left: '0',
+                      width: 'calc(2.5 * var(--s))',
+                      height: 'calc(28 * var(--s))',
+                      backgroundColor: '#FFB020',
+                    }}
+                  />
                 </div>
 
-                {/* Center Hub */}
-                <div className="absolute w-2 h-2 rounded-full bg-[#141414] border-[1.5px] border-[#C8F03C] z-20 shadow-xs" />
-              </div>
-
-              {/* Bottom Screen: Digital Time Display */}
-              <div className="relative z-10 flex items-center gap-1 font-mono text-[10px] sm:text-[11px] text-white font-bold tracking-tight pb-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C8F03C] animate-pulse" />
-                <span>{format(time, 'hh:mm:ss a')}</span>
+                {/* Center Cap */}
+                <div
+                  className="absolute rounded-full z-20 pointer-events-none"
+                  style={{
+                    width: 'calc(10 * var(--s))',
+                    height: 'calc(10 * var(--s))',
+                    backgroundColor: '#FFB020',
+                    boxShadow: '0 calc(1 * var(--s)) calc(4 * var(--s)) rgba(0,0,0,0.6)',
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* 5. Orbit Ring Front Dot (Passing in Front of Watch) */}
-      <div 
-        aria-hidden="true"
-        className="absolute w-[310px] sm:w-[380px] h-[140px] sm:h-[170px] pointer-events-none z-30"
-        style={{
-          transform: 'rotateZ(28deg) rotateX(65deg)',
-          transformStyle: 'preserve-3d',
-        }}
-      >
-        <div 
-          className="absolute right-5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#C8F03C] shadow-[0_0_8px_#C8F03C]" 
-        />
       </div>
     </div>
   );

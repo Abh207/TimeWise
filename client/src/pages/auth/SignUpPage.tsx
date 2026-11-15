@@ -29,7 +29,7 @@ export const SignUpPage: React.FC = () => {
     if (!password) return { label: 'Empty', score: 0, color: 'bg-slate-200' };
     if (password.length < 6) return { label: 'Weak', score: 1, color: 'bg-[#FF7A6B]' };
     if (password.length < 10) return { label: 'Medium', score: 2, color: 'bg-[#F5A524]' };
-    return { label: 'Strong', score: 3, color: 'bg-[#2E9E5E]' };
+    return { label: 'Strong', score: 3, color: 'bg-[#F5C7B0]' };
   };
 
   const strength = getPasswordStrength();
@@ -59,19 +59,19 @@ export const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-[#F3FAF5] dark:bg-[#0C1812] text-[#1B2B22] dark:text-[#F0FDF4] p-4 sm:p-6 lg:p-8 font-sans transition-colors duration-200">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-[#FDF1EA] dark:bg-[#140F0D] text-[#1B2B22] dark:text-[#F0FDF4] p-4 sm:p-6 lg:p-8 font-sans transition-colors duration-200">
       {/* Left visual panel */}
-      <div className="lg:w-1/2 relative rounded-[24px] overflow-hidden border border-[rgba(46,158,94,0.2)] shadow-soft flex flex-col justify-between p-6 sm:p-10 min-h-[280px] lg:min-h-full">
+      <div className="lg:w-1/2 relative rounded-[24px] overflow-hidden border border-[rgba(245,199,176,0.3)] shadow-soft flex flex-col justify-between p-6 sm:p-10 min-h-[280px] lg:min-h-full">
         <img
           src="/images/student-focus.jpg"
           alt="Focused student studying"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#144329]/90 via-[#2E9E5E]/60 to-[#144329]/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#5C2814]/90 via-[#D9805A]/60 to-[#5C2814]/40 pointer-events-none" />
 
         <div className="relative z-10">
           <Link to="/" className="inline-flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-2xl bg-white/90 border border-white/20 flex items-center justify-center text-[#2E9E5E] shadow-sm">
+            <div className="w-10 h-10 rounded-2xl bg-white/90 border border-white/20 flex items-center justify-center text-[#D9805A] shadow-sm">
               <Clock className="w-5 h-5 font-bold" />
             </div>
             <span className="font-extrabold text-2xl tracking-tight text-white drop-shadow-sm">
@@ -90,15 +90,15 @@ export const SignUpPage: React.FC = () => {
 
           <div className="mt-6 space-y-2.5 text-xs text-white/90">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#3DB772]" />
+              <CheckCircle2 className="w-4 h-4 text-[#F5C7B0]" />
               <span>Full bi-weekly rotation cycles (Week A / B)</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#3DB772]" />
+              <CheckCircle2 className="w-4 h-4 text-[#F5C7B0]" />
               <span>Solfeggio 528Hz deep focus soundscapes</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#3DB772]" />
+              <CheckCircle2 className="w-4 h-4 text-[#F5C7B0]" />
               <span>Streak freeze shields for off-days</span>
             </div>
           </div>
@@ -111,7 +111,7 @@ export const SignUpPage: React.FC = () => {
 
       {/* Right form panel */}
       <div className="lg:w-1/2 flex items-center justify-center p-4 sm:p-10 lg:p-12">
-        <div className="w-full max-w-md p-6 sm:p-10 rounded-[24px] bg-white dark:bg-[#122218] border border-[rgba(46,158,94,0.2)] shadow-soft">
+        <div className="w-full max-w-md p-6 sm:p-10 rounded-[24px] bg-white dark:bg-[#1A120E] border border-[rgba(245,199,176,0.3)] shadow-soft">
           <div className="text-left space-y-1 mb-6">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1B2B22] dark:text-[#F0FDF4] tracking-tight">
               Create Your Account
@@ -206,17 +206,17 @@ export const SignUpPage: React.FC = () => {
                 id="terms"
                 checked={agreedToTerms}
                 onChange={(e) => setAgreedToTerms(e.target.checked)}
-                className="w-4 h-4 rounded text-[#2E9E5E] focus:ring-[#2E9E5E]"
+                className="w-4 h-4 rounded text-[#F5C7B0] focus:ring-[#F5C7B0]"
               />
               <label htmlFor="terms" className="text-xs text-[#6B7C72] dark:text-[#9AB3A4]">
-                I agree to the <span className="text-[#2E9E5E]">Terms of Service</span> and <span className="text-[#2E9E5E]">Privacy Policy</span>
+                I agree to the <span className="text-[#A24E27] dark:text-[#F5C7B0]">Terms of Service</span> and <span className="text-[#A24E27] dark:text-[#F5C7B0]">Privacy Policy</span>
               </label>
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="btn-primary-green w-full py-3.5 mt-2 text-xs font-bold uppercase tracking-wider"
+              className="btn-primary-peach w-full py-3.5 mt-2 text-xs font-bold uppercase tracking-wider"
             >
               {isLoading ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -231,7 +231,7 @@ export const SignUpPage: React.FC = () => {
 
           <p className="text-center text-xs text-[#6B7C72] dark:text-[#9AB3A4] mt-6">
             Already have an account?{' '}
-            <Link to="/signin" className="text-[#2E9E5E] hover:underline font-bold">
+            <Link to="/signin" className="text-[#A24E27] dark:text-[#F5C7B0] hover:underline font-bold">
               Sign in
             </Link>
           </p>

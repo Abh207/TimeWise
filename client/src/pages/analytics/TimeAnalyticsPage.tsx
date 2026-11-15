@@ -122,16 +122,16 @@ export const TimeAnalyticsPage: React.FC = () => {
 
         <div className="p-4 rounded-2xl glass-card border border-white/10">
           <div className="text-xs text-slate-400 mb-1">Intentional Rest & Play</div>
-          <div className="text-2xl font-extrabold text-emerald-400">
+          <div className="text-2xl font-extrabold text-peach-300">
             {entries.filter(e => e.isIntentional).reduce((acc, e) => acc + e.durationMins, 0)} mins
           </div>
-          <div className="text-[11px] text-emerald-400/80 mt-1">Guilt-free recovery buffers</div>
+          <div className="text-[11px] text-peach-300/80 mt-1">Guilt-free recovery buffers</div>
         </div>
 
         <div className="p-4 rounded-2xl glass-card border border-white/10">
           <div className="text-xs text-slate-400 mb-1">Weekly Reclaim Potential</div>
-          <div className="text-2xl font-extrabold text-lime-400">+5.2 hrs</div>
-          <div className="text-[11px] text-lime-400/80 mt-1">Can cover 4 coding problem sets</div>
+          <div className="text-2xl font-extrabold text-peach-300">+5.2 hrs</div>
+          <div className="text-[11px] text-peach-300/80 mt-1">Can cover 4 coding problem sets</div>
         </div>
       </div>
 
@@ -156,7 +156,7 @@ export const TimeAnalyticsPage: React.FC = () => {
                   <span className="font-bold text-sm text-white">{entry.activity}</span>
                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                     entry.isIntentional
-                      ? 'bg-emerald-500/20 text-emerald-300'
+                      ? 'bg-peach-300/20 text-peach-300'
                       : 'bg-rose-500/20 text-rose-300'
                   }`}>
                     {entry.isIntentional ? 'Intentional Rest' : 'Unplanned Leak'}

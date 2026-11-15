@@ -65,7 +65,7 @@ export const GoalsPage: React.FC = () => {
       {/* Header Bar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl glass-card border border-white/10">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-lime-400 mb-1">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-peach-300 mb-1">
             <Target className="w-3.5 h-3.5" />
             <span>North Star & Vision Trajectory</span>
           </div>
@@ -110,7 +110,7 @@ export const GoalsPage: React.FC = () => {
             <div
               key={goal.id}
               className={`p-6 rounded-2xl glass-card border transition-all space-y-4 ${
-                isDone ? 'border-emerald-500/40 bg-emerald-500/5' : 'border-white/10'
+                isDone ? 'border-peach-400/40 bg-peach-300/10' : 'border-white/10'
               }`}
             >
               <div className="flex items-start justify-between gap-3">
@@ -143,7 +143,7 @@ export const GoalsPage: React.FC = () => {
               <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-all duration-500 ${
-                    isDone ? 'bg-emerald-500' : 'bg-gradient-to-r from-brand-500 to-indigo-500'
+                    isDone ? 'bg-peach-400' : 'bg-gradient-to-r from-brand-500 to-indigo-500'
                   }`}
                   style={{ width: `${goal.progressPercentage}%` }}
                 />
@@ -165,13 +165,13 @@ export const GoalsPage: React.FC = () => {
                       }}
                       className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-left text-xs border transition-all ${
                         m.isCompleted
-                          ? 'border-emerald-500/20 bg-emerald-500/5 text-slate-300 line-through'
+                          ? 'border-peach-400/20 bg-peach-300/10 text-slate-300 line-through'
                           : 'border-white/5 bg-dark-900/40 text-slate-200 hover:border-white/10'
                       }`}
                     >
                       <CheckCircle2
                         className={`w-4 h-4 flex-shrink-0 ${
-                          m.isCompleted ? 'text-emerald-400' : 'text-slate-600'
+                          m.isCompleted ? 'text-peach-300' : 'text-slate-600'
                         }`}
                       />
                       <span>{m.title}</span>

@@ -40,7 +40,7 @@ export const AppLayout: React.FC = () => {
   const isAtHomeHub = location.pathname === '/home' || location.pathname === '/app/home';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F3FAF5] dark:bg-[#0C1812] text-[#1B2B22] dark:text-[#F0FDF4] relative font-sans selection:bg-[#2E9E5E]/20 selection:text-[#2E9E5E] transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-[var(--peach-50)] dark:bg-[#140F0D] text-[#2A1810] dark:text-[#FDF1EA] relative font-sans selection:bg-[var(--peach-300)]/40 selection:text-[var(--peach-800)] transition-colors duration-200">
       {/* Slim Topbar Header */}
       <AppNavbar
         onOpenQuickCreate={() => handleOpenQuickCreate('task')}
@@ -59,7 +59,7 @@ export const AppLayout: React.FC = () => {
       {!isAtHomeHub && (
         <Link
           to="/home"
-          className="fixed bottom-6 right-6 z-40 hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/95 dark:bg-[#122218]/95 hover:bg-[#2E9E5E] text-[#2E9E5E] hover:text-white border border-[#2E9E5E]/30 shadow-soft font-semibold text-xs tracking-tight transition-all duration-300 backdrop-blur-xl group hover:-translate-y-1"
+          className="fixed bottom-6 right-6 z-40 hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/95 dark:bg-[#1A120E]/95 hover:bg-[var(--peach-300)] text-[var(--peach-800)] dark:text-[var(--peach-300)] hover:text-[var(--on-peach)] border border-[var(--peach-400)]/40 shadow-soft font-semibold text-xs tracking-tight transition-all duration-300 backdrop-blur-xl group hover:-translate-y-1"
           title="Return to Home Hub"
         >
           <Home className="w-4 h-4 transition-transform group-hover:scale-110" />
@@ -68,11 +68,11 @@ export const AppLayout: React.FC = () => {
       )}
 
       {/* Mobile Bottom Dock (4 Core Destinations) */}
-      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#122218]/95 border-t border-[#2E9E5E]/15 dark:border-white/10 backdrop-blur-2xl px-6 py-2.5 flex items-center justify-between shadow-soft">
+      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#1A120E]/95 border-t border-[var(--peach-400)]/20 dark:border-white/10 backdrop-blur-2xl px-6 py-2.5 flex items-center justify-between shadow-soft">
         <Link
           to="/home"
           className={`flex flex-col items-center gap-1 text-[11px] font-semibold transition-colors ${
-            isAtHomeHub ? 'text-[#2E9E5E]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
+            isAtHomeHub ? 'text-[var(--peach-800)] dark:text-[var(--peach-300)]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
           }`}
         >
           <Home className="w-5 h-5" />
@@ -82,7 +82,7 @@ export const AppLayout: React.FC = () => {
         <Link
           to="/app/timetable"
           className={`flex flex-col items-center gap-1 text-[11px] font-semibold transition-colors ${
-            location.pathname.includes('/timetable') ? 'text-[#2E9E5E]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
+            location.pathname.includes('/timetable') ? 'text-[var(--peach-800)] dark:text-[var(--peach-300)]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
           }`}
         >
           <Calendar className="w-5 h-5" />
@@ -92,7 +92,7 @@ export const AppLayout: React.FC = () => {
         <Link
           to="/app/tasks"
           className={`flex flex-col items-center gap-1 text-[11px] font-semibold transition-colors ${
-            location.pathname.includes('/tasks') ? 'text-[#2E9E5E]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
+            location.pathname.includes('/tasks') ? 'text-[var(--peach-800)] dark:text-[var(--peach-300)]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
           }`}
         >
           <CheckSquare className="w-5 h-5" />
@@ -102,7 +102,7 @@ export const AppLayout: React.FC = () => {
         <Link
           to="/app/profile"
           className={`flex flex-col items-center gap-1 text-[11px] font-semibold transition-colors ${
-            location.pathname.includes('/profile') ? 'text-[#2E9E5E]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
+            location.pathname.includes('/profile') ? 'text-[var(--peach-800)] dark:text-[var(--peach-300)]' : 'text-[#6B7C72] hover:text-[#1B2B22] dark:hover:text-white'
           }`}
         >
           <User className="w-5 h-5" />

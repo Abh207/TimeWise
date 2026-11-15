@@ -7,9 +7,8 @@ interface HowItWorksCardProps {
 
 export const HowItWorksCard: React.FC<HowItWorksCardProps> = ({ onOpenVideo }) => {
   return (
-    <div 
+    <div
       onClick={onOpenVideo}
-      className="group cursor-pointer rounded-[18px] p-2 sm:p-2.5 bg-white/65 backdrop-blur-xl border border-white/80 shadow-[0_8px_24px_rgba(60,40,10,0.06)] transition-all duration-200 flex items-center justify-between gap-2 max-w-[230px] sm:max-w-[250px] w-full"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -18,35 +17,97 @@ export const HowItWorksCard: React.FC<HowItWorksCardProps> = ({ onOpenVideo }) =
           onOpenVideo();
         }
       }}
-      aria-label="Watch how TimeWise works video"
+      aria-label="Play How TimeWise Works video"
+      className="tap-target-expanded group cursor-pointer flex items-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1C21]"
+      style={{
+        width: 'calc(408 * var(--s))',
+        height: 'calc(151 * var(--s))',
+        backgroundColor: 'var(--glass, rgba(255, 255, 255, 0.55))',
+        backdropFilter: 'blur(calc(16 * var(--s)))',
+        WebkitBackdropFilter: 'blur(calc(16 * var(--s)))',
+        borderRadius: 'calc(30 * var(--s))',
+        border: 'calc(1 * var(--s)) solid rgba(255, 255, 255, 0.85)',
+        boxShadow: '0 calc(12 * var(--s)) calc(36 * var(--s)) rgba(60, 40, 10, 0.08)',
+        padding: 'calc(14 * var(--s))',
+        gap: 'calc(16 * var(--s))',
+      }}
     >
-      <div className="flex items-center gap-2 min-w-0">
-        {/* Small Rounded Thumbnail */}
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C8F03C] to-[#FBF8F3] p-0.5 border border-white/60 shadow-xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
-          <div className="w-4 h-6 rounded-xs bg-[#141414] border border-white/40 flex flex-col items-center justify-start pt-0.5 px-0.5">
-            <div className="w-1.5 h-[1px] bg-[#C8F03C] rounded-full mb-0.5" />
-            <div className="w-full space-y-[1px]">
-              <div className="w-full h-[1px] bg-white/30 rounded-full" />
-              <div className="w-4/5 h-[1px] bg-white/30 rounded-full" />
-              <div className="w-3/5 h-[1px] bg-[#C8F03C] rounded-full" />
-            </div>
-          </div>
-        </div>
+      {/* Left Thumbnail */}
+      <div
+        className="shrink-0 flex items-center justify-center relative overflow-hidden group-hover:scale-102 transition-transform duration-200"
+        style={{
+          width: 'calc(123 * var(--s))',
+          height: 'calc(123 * var(--s))',
+          borderRadius: 'calc(20 * var(--s))',
+          background: 'linear-gradient(135deg, #F6EDE3 0%, #F5DAC9 50%, #ECC5B0 100%)',
+          boxShadow: 'inset 0 calc(1 * var(--s)) calc(2 * var(--s)) rgba(255,255,255,0.8), 0 calc(2 * var(--s)) calc(6 * var(--s)) rgba(60,40,10,0.06)',
+          border: 'calc(1 * var(--s)) solid rgba(255,255,255,0.7)',
+        }}
+      >
+        {/* Stylized Miniature Phone Mockup */}
+        <div
+          className="relative flex items-center justify-center bg-white shadow-xs"
+          style={{
+            width: 'calc(54 * var(--s))',
+            height: 'calc(88 * var(--s))',
+            borderRadius: 'calc(12 * var(--s))',
+            border: 'calc(1.5 * var(--s)) solid #D6CBC1',
+          }}
+        >
+          {/* Top Notch */}
+          <div
+            className="absolute rounded-full bg-[#BDB4A8]"
+            style={{ 
+              top: 'calc(5 * var(--s))',
+              width: 'calc(16 * var(--s))', 
+              height: 'calc(3.5 * var(--s))' 
+            }}
+          />
 
-        {/* Text Details */}
-        <div className="text-left min-w-0">
-          <h2 className="text-[11px] sm:text-xs font-bold text-[#141414] leading-tight truncate">
-            How It Works
-          </h2>
-          <p className="text-[9.5px] sm:text-[10px] text-[#6F6A64] mt-0.5 truncate">
-            Watch how it works
-          </p>
+          {/* Center Play Icon */}
+          <div
+            className="rounded-full bg-[#1C1C21] text-white flex items-center justify-center shadow-xs group-hover:bg-[#F7852C] transition-colors"
+            style={{
+              width: 'calc(28 * var(--s))',
+              height: 'calc(28 * var(--s))',
+            }}
+          >
+            <Play
+              className="fill-current"
+              style={{
+                width: 'calc(12 * var(--s))',
+                height: 'calc(12 * var(--s))',
+                marginLeft: 'calc(2 * var(--s))',
+              }}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Round White Play Button */}
-      <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white shadow-2xs flex items-center justify-center text-[#141414] group-hover:bg-[#141414] group-hover:text-white transition-all duration-200 shrink-0">
-        <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
+      {/* Right: Title & 2-line Subtitle */}
+      <div 
+        className="flex flex-col justify-center min-w-0 flex-1 pr-1.5"
+        style={{ gap: 'calc(4 * var(--s))' }}
+      >
+        <span
+          className="font-bold leading-tight"
+          style={{
+            fontSize: 'max(var(--min-font, 0px), calc(32 * var(--s)))',
+            color: '#141414',
+          }}
+        >
+          How It Works
+        </span>
+        <p
+          className="font-normal leading-snug line-clamp-2"
+          style={{
+            fontSize: 'max(var(--min-font, 0px), calc(25 * var(--s)))',
+            color: '#7A756E',
+            lineHeight: 1.3,
+          }}
+        >
+          Watch the video to see how it works.
+        </p>
       </div>
     </div>
   );

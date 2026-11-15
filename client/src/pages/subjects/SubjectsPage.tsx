@@ -140,7 +140,7 @@ export const SubjectsPage: React.FC = () => {
                   <span>{sub.instructor}</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-400">
-                  <GraduationCap className="w-3.5 h-3.5 text-emerald-400" />
+                  <GraduationCap className="w-3.5 h-3.5 text-peach-300" />
                   <span>Target Grade: <strong className="text-white">{sub.gradeGoal}</strong></span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-400">

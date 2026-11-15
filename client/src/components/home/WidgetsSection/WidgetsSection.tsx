@@ -34,20 +34,20 @@ export const WidgetsSection: React.FC = () => {
     <section
       id="widgets"
       ref={sectionRef}
-      className="w-full widgets-dotted-bg text-[#141414] dark:text-white transition-colors relative z-20 py-[clamp(48px,8vw,100px)] border-t border-[rgba(20,20,20,0.06)] dark:border-white/10"
+      className="w-full widgets-dotted-bg text-[#141414] dark:text-white transition-colors relative z-20 py-[clamp(48px,6vw,96px)] border-t border-[rgba(20,20,20,0.06)] dark:border-white/10 overflow-hidden"
     >
-      <div className="max-w-[1180px] mx-auto px-[clamp(16px,4vw,48px)]">
+      <div className="w-full px-[clamp(12px,2vw,32px)]">
         
         {/* ============================================================ */}
-        {/* SECTION HEADER                                               */}
+        {/* SECTION HEADER (Centered above grid)                         */}
         {/* ============================================================ */}
         <div
-          className={`text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-3 transition-all duration-700 ease-out ${
+          className={`text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-3 transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          {/* Small Lime Chip */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C8F03C] text-[#141414] text-xs font-[800] uppercase tracking-wider shadow-2xs">
+          {/* Small Peach Chip */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5C7B0] text-[#2A1810] text-xs font-[800] uppercase tracking-wider shadow-2xs">
             <span className="w-1.5 h-1.5 rounded-full bg-[#141414] animate-pulse" />
             <span>Live Dashboard</span>
           </div>
@@ -64,46 +64,36 @@ export const WidgetsSection: React.FC = () => {
         </div>
 
         {/* ============================================================ */}
-        {/* 3-COLUMN BENTO GRID (Exact match to reference)               */}
+        {/* FULL-WIDTH 3-COLUMN BENTO GRID                               */}
+        {/* Tablet (640-1023px): 2 cols; Mobile (<640px): 1 col          */}
         {/* ============================================================ */}
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start transition-all duration-700 delay-100 ${
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[clamp(12px,1.2vw,20px)] items-stretch transition-all duration-700 delay-100 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
           {/* ========================================================== */}
           {/* COLUMN 1 (Left): [A] Schedule + [B] Time Analysis          */}
           {/* ========================================================== */}
-          <div className="flex flex-col gap-4 widget-float-1">
-            {/* [A] Weekly Schedule (Tall, light grey outer card) */}
+          <div className="flex flex-col justify-between gap-[clamp(12px,1.2vw,20px)] h-full widget-float-1">
             <ScheduleCard />
-
-            {/* [B] Working Time Analysis (Tall with dual smooth curves) */}
             <TimeAnalysisCard />
           </div>
 
           {/* ========================================================== */}
           {/* COLUMN 2 (Middle): [C] Daily Hours + [D] Note + [E] Prog   */}
           {/* ========================================================== */}
-          <div className="flex flex-col gap-4 widget-float-2">
-            {/* [C] Daily Working Hours (Short) */}
+          <div className="flex flex-col justify-between gap-[clamp(12px,1.2vw,20px)] h-full widget-float-2">
             <DailyHoursCard />
-
-            {/* [D] Note Card (Tall, warm yellow with audio player) */}
             <NoteCard />
-
-            {/* [E] Monthly Progress (Short with animated blue stripes) */}
             <MonthlyProgressCard />
           </div>
 
           {/* ========================================================== */}
           {/* COLUMN 3 (Right): [F] Task Count + [G] Tasks List          */}
           {/* ========================================================== */}
-          <div className="flex flex-col gap-4 widget-float-3 md:col-span-2 lg:col-span-1">
-            {/* [F] Number of Tasks (Tall, near-black #0B0B0B card) */}
+          <div className="flex flex-col justify-between gap-[clamp(12px,1.2vw,20px)] h-full widget-float-3 sm:col-span-2 lg:col-span-1">
             <TaskCountCard />
-
-            {/* [G] Tasks List (Tall with tree hierarchy & checkboxes) */}
             <TasksListCard />
           </div>
         </div>
@@ -112,4 +102,3 @@ export const WidgetsSection: React.FC = () => {
     </section>
   );
 };
-

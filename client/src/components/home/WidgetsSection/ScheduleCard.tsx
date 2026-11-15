@@ -33,7 +33,7 @@ export const ScheduleCard: React.FC = () => {
   };
 
   return (
-    <div className="rounded-[24px] p-4 sm:p-5 bg-[#EFEFEF] dark:bg-[#1C1C1C] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(60,40,10,0.06)] hover:shadow-[0_16px_36px_rgba(60,40,10,0.10)] transition-all duration-300">
+    <div className="rounded-[24px] p-[clamp(16px,1.4vw,24px)] bg-[#EFEFEF] dark:bg-[#1C1C1C] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(60,40,10,0.06)] hover:shadow-[0_16px_36px_rgba(60,40,10,0.10)] transition-all duration-300 flex flex-col justify-between">
       {/* Header */}
       <div className="flex items-start justify-between pb-1">
         <div>
@@ -48,7 +48,7 @@ export const ScheduleCard: React.FC = () => {
         <button
           type="button"
           aria-label="More schedule options"
-          className="w-7 h-7 rounded-full bg-white dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center shadow-2xs hover:bg-[#141414] hover:text-white dark:hover:bg-[#C8F03C] dark:hover:text-[#141414] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8F03C]"
+          className="w-7 h-7 rounded-full bg-white dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center shadow-2xs hover:bg-[#141414] hover:text-white dark:hover:bg-[#F5C7B0] dark:hover:text-[#2A1810] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C7B0]"
         >
           <MoreHorizontal className="w-4 h-4" />
         </button>

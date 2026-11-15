@@ -138,7 +138,7 @@ export const InboxPage: React.FC = () => {
                 <div className="flex items-center gap-2 self-end sm:self-center">
                   <button
                     onClick={() => handleConvertToTask(item)}
-                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition-colors font-medium text-[11px]"
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-peach-300/15 text-peach-300 border border-peach-400/30 hover:bg-peach-300/25 transition-colors font-medium text-[11px]"
                   >
                     <CheckSquare className="w-3 h-3" />
                     <span>To Task</span>

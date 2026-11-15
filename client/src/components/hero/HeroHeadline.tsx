@@ -2,28 +2,57 @@ import React from 'react';
 
 export const HeroHeadline: React.FC = () => {
   return (
-    <div className="w-full select-none pointer-events-none">
-      {/* Desktop Layout (>= 1024px): "FOCUS" at top-left, "YOUR" / "TIME" stacked at top-right */}
-      <div className="hidden lg:flex w-full items-start justify-between">
-        {/* Left: FOCUS */}
-        <div className="text-[clamp(44px,7vw,110px)] font-[800] tracking-[-0.03em] leading-[0.88] text-[#141414] animate-fade-in-left">
-          FOCUS
+    <>
+      {/* Accessible h1 for screen readers and SEO */}
+      <h1 className="sr-only">FOCUS ON YOUR TIME</h1>
+
+      {/* Scaled Desktop Headline on 1920 x 870 Canvas */}
+      <div 
+        aria-hidden="true"
+        className="select-none pointer-events-none"
+      >
+        {/* "FOCUS ON": left 63, cap top at y = 122 */}
+        <div
+          className="absolute z-20 font-[800] uppercase tracking-[-0.015em] whitespace-nowrap animate-fade-in-left"
+          style={{
+            left: 'calc(63 * var(--s))',
+            top: 'calc(122 * var(--s))',
+            fontSize: 'max(var(--min-font, 0px), calc(170 * var(--s)))',
+            lineHeight: 0.84,
+            color: '#141414',
+          }}
+        >
+          FOCUS ON
         </div>
 
-        {/* Right: YOUR / TIME stacked */}
-        <div className="text-right text-[clamp(44px,7vw,110px)] font-[800] tracking-[-0.03em] leading-[0.88] text-[#141414] flex flex-col items-end animate-fade-in-right">
-          <span>YOUR</span>
-          <span>TIME</span>
+        {/* "YOUR": right edge at 1856 (right 64), cap top at y = 122 */}
+        <div
+          className="absolute z-20 font-[800] uppercase tracking-[-0.015em] text-right whitespace-nowrap animate-fade-in-right"
+          style={{
+            right: 'calc(64 * var(--s))',
+            top: 'calc(122 * var(--s))',
+            fontSize: 'max(var(--min-font, 0px), calc(170 * var(--s)))',
+            lineHeight: 0.84,
+            color: '#141414',
+          }}
+        >
+          YOUR
+        </div>
+
+        {/* "TIME": right edge at 1856 (right 64), cap top at y = 257 */}
+        <div
+          className="absolute z-20 font-[800] uppercase tracking-[-0.015em] text-right whitespace-nowrap animate-fade-in-right"
+          style={{
+            right: 'calc(64 * var(--s))',
+            top: 'calc(257 * var(--s))',
+            fontSize: 'max(var(--min-font, 0px), calc(170 * var(--s)))',
+            lineHeight: 0.84,
+            color: '#141414',
+          }}
+        >
+          TIME
         </div>
       </div>
-
-      {/* Mobile & Tablet Layout (< 1024px): Centered Stack */}
-      <div className="lg:hidden w-full text-center px-2 py-1">
-        <h1 className="text-[clamp(36px,8.5vw,68px)] font-[800] tracking-[-0.03em] leading-[0.9] text-[#141414]">
-          <span>FOCUS</span>{' '}
-          <span className="block sm:inline">YOUR TIME</span>
-        </h1>
-      </div>
-    </div>
+    </>
   );
 };

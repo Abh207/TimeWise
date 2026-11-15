@@ -219,7 +219,7 @@ export const RecordsPage: React.FC = () => {
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
                     isProject ? 'bg-indigo-500/20 text-indigo-300' :
-                    isDailyLog ? 'bg-emerald-500/20 text-emerald-300' : 'bg-slate-700/50 text-slate-300'
+                    isDailyLog ? 'bg-peach-300/20 text-peach-300' : 'bg-slate-700/50 text-slate-300'
                   }`}>
                     {rec.type.replace('_', ' ')}
                   </span>

@@ -71,15 +71,15 @@ export const MenuDropdown: React.FC<MenuDropdownProps> = ({ className = '' }) =>
   };
 
   const navButtons = [
-    { label: 'Home Hub', path: '/home', icon: Home, accent: 'text-[#2E9E5E] bg-[#E6F4EA]' },
+    { label: 'Home Hub', path: '/home', icon: Home, accent: 'text-[#A24E27] bg-[#FBE3D6]' },
     { label: 'Academic Timetable', path: '/app/timetable', icon: Calendar, accent: 'text-[#4DA3FF] bg-[#EAF4FF]' },
-    { label: 'Smart AI Planner', path: '/app/smart-planner', icon: BrainCircuit, accent: 'text-[#2E9E5E] bg-[#E6F4EA]' },
+    { label: 'Smart AI Planner', path: '/app/smart-planner', icon: BrainCircuit, accent: 'text-[#A24E27] bg-[#FBE3D6]' },
     { label: 'Eisenhower Tasks', path: '/app/tasks', icon: CheckSquare, accent: 'text-[#FF7A6B] bg-[#FFF0EE]' },
-    { label: 'Focus Chamber', path: '/app/focus', icon: Timer, accent: 'text-[#3DB772] bg-[#E6F4EA]' },
+    { label: 'Focus Chamber', path: '/app/focus', icon: Timer, accent: 'text-[#A24E27] bg-[#FBE3D6]' },
     { label: 'Streaks & Grace Days', path: '/app/streaks', icon: Flame, accent: 'text-[#FF7A6B] bg-[#FFF0EE]' },
     { label: 'Weather Adjustments', path: '/app/weather', icon: CloudSun, accent: 'text-[#F5A524] bg-[#FFF8EB]' },
     { label: 'Features Overview', path: '/features', icon: Sparkles, accent: 'text-[#8B7CF6] bg-[#F4F1FE]' },
-    { label: 'Sign In to Account', path: '/signin', icon: LogIn, accent: 'text-[#1B2B22] bg-[#E6F4EA]' },
+    { label: 'Sign In to Account', path: '/signin', icon: LogIn, accent: 'text-[#1B2B22] bg-[#FBE3D6]' },
   ];
 
   return (
@@ -92,7 +92,11 @@ export const MenuDropdown: React.FC<MenuDropdownProps> = ({ className = '' }) =>
         aria-expanded={isOpen}
         aria-haspopup="dialog"
         aria-label="Navigation Menu"
-        className="w-11 h-11 rounded-full flex items-center justify-center bg-white dark:bg-[#122218] text-[#1B2B22] dark:text-[#F0FDF4] hover:bg-[#E6F4EA] dark:hover:bg-[#1E3627] hover:text-[#2E9E5E] border border-[rgba(46,158,94,0.2)] shadow-sm hover:shadow-soft transition-all duration-200"
+        style={{
+          width: 'max(40px, calc(44px - var(--shrink, 0px)))',
+          height: 'max(40px, calc(44px - var(--shrink, 0px)))',
+        }}
+        className="rounded-full flex items-center justify-center bg-white dark:bg-[#1A120E] text-[#1B2B22] dark:text-[#F0FDF4] hover:bg-[#FBE3D6] dark:hover:bg-[#2C1E18] hover:text-[#A24E27] dark:hover:text-[#F5C7B0] border border-[rgba(245,199,176,0.3)] shadow-sm hover:shadow-soft transition-all duration-200"
       >
         <MoreVertical className="w-5 h-5" />
       </button>
@@ -112,17 +116,17 @@ export const MenuDropdown: React.FC<MenuDropdownProps> = ({ className = '' }) =>
           role="dialog"
           aria-modal="true"
           aria-label="Application Destinations"
-          className="fixed top-20 right-4 sm:right-8 w-[320px] sm:w-[350px] max-h-[85vh] overflow-y-auto bg-white dark:bg-[#122218] border border-[rgba(46,158,94,0.25)] rounded-[20px] shadow-soft-green-lg p-5 z-50 animate-scaleUp text-left"
+          className="fixed top-20 right-4 sm:right-8 w-[320px] sm:w-[350px] max-h-[85vh] overflow-y-auto bg-white dark:bg-[#1A120E] border border-[rgba(245,199,176,0.35)] rounded-[20px] shadow-soft-peach-lg p-5 z-50 animate-scaleUp text-left"
         >
           {/* Header */}
-          <div className="flex items-center justify-between pb-3 border-b border-[rgba(46,158,94,0.15)] mb-3">
+          <div className="flex items-center justify-between pb-3 border-b border-[rgba(245,199,176,0.25)] mb-3">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#2E9E5E]">Direct Switcher</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A24E27] dark:text-[#F5C7B0]">Direct Switcher</span>
               <h3 className="text-sm font-bold text-[#1B2B22] dark:text-[#F0FDF4]">Jump to Destination</h3>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 rounded-full flex items-center justify-center text-[#6B7C72] hover:text-[#1B2B22] hover:bg-[#E6F4EA] dark:hover:bg-[#1A3122] transition-colors"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-[#6B7C72] hover:text-[#1B2B22] hover:bg-[#FBE3D6] dark:hover:bg-[#2C1E18] transition-colors"
               aria-label="Close Menu"
             >
               <X className="w-4 h-4" />
@@ -139,26 +143,26 @@ export const MenuDropdown: React.FC<MenuDropdownProps> = ({ className = '' }) =>
                   ref={idx === 0 ? firstButtonRef : undefined}
                   role="menuitem"
                   onClick={() => handleNavigate(btn.path)}
-                  className="w-full flex items-center justify-between p-2.5 rounded-[14px] hover:bg-[#E6F4EA] dark:hover:bg-[#1E3627] text-left transition-all duration-200 group"
+                  className="w-full flex items-center justify-between p-2.5 rounded-[14px] hover:bg-[#FBE3D6] dark:hover:bg-[#2C1E18] text-left transition-all duration-200 group"
                 >
                   <div className="flex items-center gap-3">
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${btn.accent} transition-transform group-hover:scale-105`}>
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-semibold text-[#1B2B22] dark:text-[#F0FDF4] group-hover:text-[#2E9E5E] transition-colors">
+                    <span className="text-xs font-semibold text-[#1B2B22] dark:text-[#F0FDF4] group-hover:text-[#A24E27] dark:group-hover:text-[#F5C7B0] transition-colors">
                       {btn.label}
                     </span>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#6B7C72] opacity-0 group-hover:opacity-100 group-hover:text-[#2E9E5E] transition-all transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#6B7C72] opacity-0 group-hover:opacity-100 group-hover:text-[#A24E27] dark:group-hover:text-[#F5C7B0] transition-all transform group-hover:translate-x-0.5" />
                 </button>
               );
             })}
           </div>
 
           {/* Footer note */}
-          <div className="mt-4 pt-3 border-t border-[rgba(46,158,94,0.15)] flex items-center justify-between text-[11px] text-[#6B7C72]">
+          <div className="mt-4 pt-3 border-t border-[rgba(245,199,176,0.25)] flex items-center justify-between text-[11px] text-[#6B7C72]">
             <span>Press Esc to close</span>
-            <span className="font-semibold text-[#2E9E5E]">TimeWise Clean OS</span>
+            <span className="font-semibold text-[#A24E27] dark:text-[#F5C7B0]">TimeWise Clean OS</span>
           </div>
         </div>
       )}

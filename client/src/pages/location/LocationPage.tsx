@@ -204,7 +204,7 @@ export const LocationPage: React.FC = () => {
       {/* Saved Locations List */}
       <div className="p-6 rounded-2xl glass-card border border-white/10 space-y-4">
         <h2 className="text-sm font-bold text-white flex items-center gap-2">
-          <MapPin className="w-4 h-4 text-emerald-400" />
+          <MapPin className="w-4 h-4 text-peach-300" />
           <span>Frequently Visited Places ({savedLocations.length})</span>
         </h2>
 

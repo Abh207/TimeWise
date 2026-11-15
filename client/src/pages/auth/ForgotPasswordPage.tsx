@@ -32,7 +32,7 @@ export const ForgotPasswordPage: React.FC = () => {
 
         {isSubmitted ? (
           <div className="space-y-4 text-center py-4">
-            <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
+            <div className="w-12 h-12 rounded-full bg-peach-300/20 text-peach-300 flex items-center justify-center mx-auto border border-peach-400/30">
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <h2 className="text-xl font-bold text-white">Reset Link Dispatched</h2>

@@ -60,7 +60,7 @@ export const SmartPlannerPage: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl glass-card border border-white/10">
         <div>
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-400 mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-lime-400" />
+            <Sparkles className="w-3.5 h-3.5 text-peach-300" />
             <span>Deterministic Explainable Engine</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white">Smart Timetable Planner</h1>
@@ -73,7 +73,7 @@ export const SmartPlannerPage: React.FC = () => {
         <div className="flex items-center gap-3">
           <div className="p-3 rounded-xl bg-brand-500/10 border border-brand-500/30 text-center">
             <div className="text-[10px] uppercase font-bold text-slate-400">Engine Confidence</div>
-            <div className="text-base font-extrabold text-lime-400">94% High</div>
+            <div className="text-base font-extrabold text-peach-300">94% High</div>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ export const SmartPlannerPage: React.FC = () => {
           </div>
           <div className="p-3 rounded-xl bg-dark-850 border border-white/5">
             <div className="text-slate-400 text-[10px]">Urgent Priority Tasks</div>
-            <div className="font-semibold text-lime-400 mt-1">
+            <div className="font-semibold text-peach-300 mt-1">
               {tasks.filter(t => !t.isCompleted && t.priority === 'urgent').length} Ready to Allocate
             </div>
           </div>
@@ -109,7 +109,7 @@ export const SmartPlannerPage: React.FC = () => {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-base font-bold text-white flex items-center gap-2">
-            <Zap className="w-4 h-4 text-lime-400" />
+            <Zap className="w-4 h-4 text-peach-300" />
             <span>Proposed Schedule Allocations ({recommendations.length})</span>
           </h2>
           <span className="text-xs text-slate-400">Date: {targetDate}</span>
@@ -117,7 +117,7 @@ export const SmartPlannerPage: React.FC = () => {
 
         {recommendations.length === 0 ? (
           <div className="p-12 text-center rounded-2xl glass-card border border-white/10">
-            <Check className="w-10 h-10 text-emerald-400 mx-auto mb-3" />
+            <Check className="w-10 h-10 text-peach-300 mx-auto mb-3" />
             <h3 className="text-base font-bold text-white">All Tasks Allocated!</h3>
             <p className="text-xs text-slate-400 mt-1">
               Your pending priority assignments are smoothly scheduled in your timetable.
@@ -134,7 +134,7 @@ export const SmartPlannerPage: React.FC = () => {
                 key={rec.id}
                 className={`p-5 rounded-2xl border transition-all ${
                   isApplied
-                    ? 'border-emerald-500/40 bg-emerald-500/10'
+                    ? 'border-peach-400/40 bg-peach-300/15'
                     : 'border-white/10 glass-card bg-dark-900/80'
                 }`}
               >
@@ -145,7 +145,7 @@ export const SmartPlannerPage: React.FC = () => {
                       <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-brand-500/20 text-brand-300">
                         {rec.task.category}
                       </span>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold text-lime-300 bg-lime-500/20">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold text-peach-300 bg-peach-300/20">
                         {rec.confidenceScore}% Confidence
                       </span>
                     </div>
@@ -168,7 +168,7 @@ export const SmartPlannerPage: React.FC = () => {
                   {/* Actions */}
                   <div className="flex items-center gap-2 self-end lg:self-center">
                     {isApplied ? (
-                      <span className="px-4 py-2 rounded-xl bg-emerald-600/30 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 border border-emerald-500/30">
+                      <span className="px-4 py-2 rounded-xl bg-peach-300/20 text-peach-300 text-xs font-semibold flex items-center gap-1.5 border border-peach-400/30">
                         <Check className="w-4 h-4" /> Added to Timetable
                       </span>
                     ) : (

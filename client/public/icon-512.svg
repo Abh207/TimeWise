@@ -9,6 +9,6 @@
   <circle cx="256" cy="256" r="170" stroke="url(#grad)" stroke-width="28" fill="none" opacity="0.8"/>
   <circle cx="256" cy="256" r="20" fill="#a78bfa" />
   <polyline points="256,138 256,256 342,256" stroke="#c4b5fd" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <circle cx="256" cy="86" r="14" fill="#84cc16" />
+  <circle cx="256" cy="86" r="14" fill="#F5C7B0" />
 </svg>
 

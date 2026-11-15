@@ -12,7 +12,7 @@ export const AboutPage: React.FC = () => {
       <main className="flex-1 max-w-4xl mx-auto px-4 py-16 sm:px-6 space-y-12 animate-fadeIn">
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-brand-500/30 text-xs text-brand-300">
-            <Sparkles className="w-3.5 h-3.5 text-lime-400" /> Platform Philosophy & Vision
+            <Sparkles className="w-3.5 h-3.5 text-peach-300" /> Platform Philosophy & Vision
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
             Designed for Intentional Living
@@ -35,7 +35,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="p-6 rounded-2xl glass-card border border-white/10 space-y-3">
             <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+              <ShieldCheck className="w-5 h-5 text-peach-300" />
               <span>Privacy & Local Sovereign Data</span>
             </h3>
             <p className="text-xs text-slate-300 leading-relaxed font-light">

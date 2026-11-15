@@ -12,15 +12,15 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({ isTransparent = fals
     <header className={
       isTransparent
         ? "absolute top-0 left-0 right-0 z-40 w-full bg-black/25 dark:bg-black/40 border-b border-white/10 backdrop-blur-md transition-colors"
-        : "sticky top-0 z-40 w-full bg-[#F3FAF5]/90 dark:bg-[#0C1812]/90 border-b border-[rgba(46,158,94,0.15)] backdrop-blur-md"
+        : "sticky top-0 z-40 w-full bg-[#FDF1EA]/90 dark:bg-[#140F0D]/90 border-b border-[rgba(245,199,176,0.25)] backdrop-blur-md"
     }>
       <div className="max-w-[1360px] mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
         {/* Brand Logo on the Left */}
         <Link to="/" className="flex items-center gap-3 group">
           <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform ${
             isTransparent
-              ? "bg-white/15 border border-white/25 text-[#3DB772]"
-              : "bg-[#E6F4EA] dark:bg-[#1A3122] border border-[rgba(46,158,94,0.3)] text-[#2E9E5E]"
+              ? "bg-white/15 border border-white/25 text-[#F5C7B0]"
+              : "bg-[#FBE3D6] dark:bg-[#2C1E18] border border-[rgba(245,199,176,0.35)] text-[#A24E27] dark:text-[#F5C7B0]"
           }`}>
             <Clock className="w-5 h-5 font-bold" />
           </div>
@@ -30,8 +30,8 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({ isTransparent = fals
             TimeWise
             <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${
               isTransparent
-                ? "bg-[#2E9E5E]/20 text-[#3DB772] border border-[#2E9E5E]/30"
-                : "bg-[#E6F4EA] text-[#2E9E5E] border border-[rgba(46,158,94,0.25)]"
+                ? "bg-[#F5C7B0]/20 text-[#F5C7B0] border border-[#F5C7B0]/30"
+                : "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0] border border-[rgba(245,199,176,0.35)]"
             }`}>
               Clean
             </span>
@@ -45,7 +45,7 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({ isTransparent = fals
             className={`hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-semibold transition-colors ${
               isTransparent
                 ? "text-white/90 hover:text-white hover:bg-white/15 border border-white/20"
-                : "text-[#2E9E5E] hover:bg-[#E6F4EA]"
+                : "text-[#A24E27] dark:text-[#F5C7B0] hover:bg-[#FBE3D6] dark:hover:bg-[#2C1E18]"
             }`}
           >
             Sign In

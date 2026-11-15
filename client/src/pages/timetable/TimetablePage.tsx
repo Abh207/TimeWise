@@ -213,7 +213,7 @@ export const TimetablePage: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl glass-card border border-white/10">
         <div>
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-400 mb-1">
-            <Calendar className="w-3.5 h-3.5 text-lime-400" />
+            <Calendar className="w-3.5 h-3.5 text-peach-300" />
             <span>Interactive Timetable Studio</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white">Advanced Schedule & Classes</h1>
@@ -410,7 +410,7 @@ export const TimetablePage: React.FC = () => {
                                 completeEvent(ev.id);
                                 if (!isCompleted) triggerConfetti();
                               }}
-                              className={`p-1 rounded hover:bg-white/10 ${isCompleted ? 'text-emerald-400' : 'text-slate-400'}`}
+                              className={`p-1 rounded hover:bg-white/10 ${isCompleted ? 'text-peach-300' : 'text-slate-400'}`}
                               title={isCompleted ? 'Completed' : 'Mark completed'}
                             >
                               <CheckCircle2 className="w-3.5 h-3.5" />

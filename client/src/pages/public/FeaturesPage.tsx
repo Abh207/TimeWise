@@ -36,8 +36,8 @@ const ROW1_FEATURES = [
     title: "Smart AI Planner",
     desc: "Heuristic engine finds zero-conflict study windows.",
     pill: "AI OPTIMIZER",
-    gradient: "from-[#2E9E5E] to-[#3DB772]",
-    pillColor: "bg-[#E6F4EA] text-[#2E9E5E] border-[rgba(46,158,94,0.3)]",
+    gradient: "from-[#F5C7B0] to-[#EFAE8F]",
+    pillColor: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0] border-[rgba(245,199,176,0.35)]",
     icon: BrainCircuit,
     link: "/app/smart-planner"
   },
@@ -63,8 +63,8 @@ const ROW1_FEATURES = [
     title: "Focus Chamber",
     desc: "Pomodoro timers with 528Hz Solfeggio soundscapes.",
     pill: "AUDIO SYNC",
-    gradient: "from-[#2E9E5E] to-[#3DB772]",
-    pillColor: "bg-[#E6F4EA] text-[#2E9E5E] border-[rgba(46,158,94,0.3)]",
+    gradient: "from-[#F5C7B0] to-[#EFAE8F]",
+    pillColor: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0] border-[rgba(245,199,176,0.35)]",
     icon: Volume2,
     link: "/app/focus"
   },
@@ -108,8 +108,8 @@ const ROW1_FEATURES = [
     title: "Zero-Latency Vault",
     desc: "Instant client persistence with full JSON export.",
     pill: "PRIVATE",
-    gradient: "from-[#2E9E5E] to-[#3DB772]",
-    pillColor: "bg-[#E6F4EA] text-[#2E9E5E] border-[rgba(46,158,94,0.3)]",
+    gradient: "from-[#F5C7B0] to-[#EFAE8F]",
+    pillColor: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0] border-[rgba(245,199,176,0.35)]",
     icon: Lock,
     link: "/app/records"
   },
@@ -135,8 +135,8 @@ const ROW1_FEATURES = [
     title: "528Hz Solfeggio Audio",
     desc: "Harmonic frequency synthesized purely in Web Audio.",
     pill: "ACOUSTIC",
-    gradient: "from-[#2E9E5E] to-[#3DB772]",
-    pillColor: "bg-[#E6F4EA] text-[#2E9E5E] border-[rgba(46,158,94,0.3)]",
+    gradient: "from-[#F5C7B0] to-[#EFAE8F]",
+    pillColor: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0] border-[rgba(245,199,176,0.35)]",
     icon: Sparkles,
     link: "/app/focus"
   }
@@ -165,8 +165,8 @@ const ROW2_TOOLS = [
     title: "Strategic Goals & OKRs",
     desc: "Quarterly objectives broken into milestone check-ins.",
     pill: "STRATEGY",
-    gradient: "from-[#2E9E5E] to-[#3DB772]",
-    pillColor: "bg-[#E6F4EA] text-[#2E9E5E] border-[rgba(46,158,94,0.3)]",
+    gradient: "from-[#F5C7B0] to-[#EFAE8F]",
+    pillColor: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0] border-[rgba(245,199,176,0.35)]",
     icon: Target,
     link: "/app/goals"
   },
@@ -219,8 +219,8 @@ const ROW2_TOOLS = [
     title: "Quick Switcher (Ctrl+K)",
     desc: "Jump anywhere or log tasks without lifting your wrists.",
     pill: "KEYBOARD FIRST",
-    gradient: "from-[#2E9E5E] to-[#3DB772]",
-    pillColor: "bg-[#E6F4EA] text-[#2E9E5E] border-[rgba(46,158,94,0.3)]",
+    gradient: "from-[#F5C7B0] to-[#EFAE8F]",
+    pillColor: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0] border-[rgba(245,199,176,0.35)]",
     icon: Compass,
     link: "/home"
   },
@@ -244,7 +244,7 @@ const ROW2_TOOLS = [
   },
   {
     title: "Light & Dark Themes",
-    desc: "Fresh light green palette with matching deep dark mode.",
+    desc: "Warm peach palette with matching deep dark mode.",
     pill: "ERGONOMICS",
     gradient: "from-[#8B7CF6] to-[#A78BFA]",
     pillColor: "bg-[#F4F1FE] text-[#8B7CF6] border-[rgba(139,124,246,0.3)]",
@@ -259,7 +259,7 @@ const ROW3_TESTIMONIALS = [
     role: "STEM Student",
     avatar: "/images/avatar-1.jpg",
     quote: "TimeWise solved my bi-weekly CS labs and saved 4 hours of weekly study time.",
-    chipBg: "bg-[#E6F4EA] text-[#2E9E5E]"
+    chipBg: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0]"
   },
   {
     name: "Dr. Elena Rostova",
@@ -273,7 +273,7 @@ const ROW3_TESTIMONIALS = [
     role: "Software Lead",
     avatar: "/images/avatar-3.jpg",
     quote: "The 528Hz Solfeggio bells and Pomodoro chamber keep my coding blocks uninterrupted.",
-    chipBg: "bg-[#E6F4EA] text-[#3DB772]"
+    chipBg: "bg-[#FBE3D6] text-[#A24E27] dark:text-[#F5C7B0]"
   },
   {
     name: "Sarah Lindqvist",
@@ -300,7 +300,7 @@ const ROW3_TESTIMONIALS = [
 
 export const FeaturesPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F3FAF5] dark:bg-[#0C1812] text-[#1B2B22] dark:text-[#F0FDF4] font-sans transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-[#FDF1EA] dark:bg-[#140F0D] text-[#1B2B22] dark:text-[#F0FDF4] font-sans transition-colors duration-200">
       {/* Top Navbar */}
       <PublicNavbar />
 
@@ -308,13 +308,13 @@ export const FeaturesPage: React.FC = () => {
       <main className="flex-1 py-12 sm:py-16 space-y-16">
         {/* Header Introduction */}
         <div className="max-w-[1360px] mx-auto px-6 sm:px-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6F4EA] dark:bg-[#1A3122] text-[#2E9E5E] text-xs font-semibold border border-[rgba(46,158,94,0.25)] shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FBE3D6] dark:bg-[#2C1E18] text-[#A24E27] dark:text-[#F5C7B0] text-xs font-semibold border border-[rgba(245,199,176,0.35)] shadow-xs">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Complete Architecture Gallery</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1B2B22] dark:text-[#F0FDF4]">
-            Everything engineered to <span className="text-[#2E9E5E]">clarify your routine</span>
+            Everything engineered to <span className="text-[#A24E27] dark:text-[#F5C7B0]">clarify your routine</span>
           </h1>
 
           <p className="text-sm sm:text-base text-[#6B7C72] dark:text-[#9AB3A4] max-w-2xl mx-auto leading-relaxed">
@@ -328,8 +328,8 @@ export const FeaturesPage: React.FC = () => {
         <div className="space-y-4">
           <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#2E9E5E]" />
-              <h2 className="text-sm font-bold text-[#2E9E5E]">Core Scheduling & Academic Engines</h2>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#F5C7B0]" />
+              <h2 className="text-sm font-bold text-[#A24E27] dark:text-[#F5C7B0]">Core Scheduling & Academic Engines</h2>
             </div>
             <span className="text-xs text-[#6B7C72] dark:text-[#9AB3A4] hidden sm:inline">Auto-scrolling Left &rarr; Right</span>
           </div>
@@ -340,11 +340,11 @@ export const FeaturesPage: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="w-[230px] sm:w-[250px] h-[140px] p-4 rounded-[20px] bg-white dark:bg-[#122218] border border-[rgba(46,158,94,0.2)] shadow-soft hover-lift flex flex-col justify-between shrink-0 select-none group text-left"
+                  className="w-[230px] sm:w-[250px] h-[140px] p-4 rounded-[20px] bg-white dark:bg-[#1A120E] border border-[rgba(245,199,176,0.3)] shadow-soft hover-lift flex flex-col justify-between shrink-0 select-none group text-left"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <div className={`w-7 h-7 rounded-lg bg-gradient-to-tr ${item.gradient} text-white flex items-center justify-center shadow-xs shrink-0`}>
+                      <div className={`w-7 h-7 rounded-lg bg-gradient-to-tr ${item.gradient} text-[#2A1810] flex items-center justify-center shadow-xs shrink-0`}>
                         <Icon className="w-3.5 h-3.5" />
                       </div>
                       <span className={`text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-full border ${item.pillColor}`}>
@@ -360,7 +360,7 @@ export const FeaturesPage: React.FC = () => {
 
                   <Link
                     to={item.link}
-                    className="text-[11px] font-semibold text-[#2E9E5E] hover:underline flex items-center gap-1 mt-1"
+                    className="text-[11px] font-semibold text-[#A24E27] dark:text-[#F5C7B0] hover:underline flex items-center gap-1 mt-1"
                   >
                     <span>Explore</span>
                     <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
@@ -378,7 +378,7 @@ export const FeaturesPage: React.FC = () => {
           <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#4DA3FF]" />
-              <h2 className="text-sm font-bold text-[#2E9E5E]">Productivity Protocols & Insights</h2>
+              <h2 className="text-sm font-bold text-[#A24E27] dark:text-[#F5C7B0]">Productivity Protocols & Insights</h2>
             </div>
             <span className="text-xs text-[#6B7C72] dark:text-[#9AB3A4] hidden sm:inline">Auto-scrolling Right &larr; Left</span>
           </div>
@@ -389,11 +389,11 @@ export const FeaturesPage: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="w-[230px] sm:w-[250px] h-[140px] p-4 rounded-[20px] bg-[#E6F4EA]/60 dark:bg-[#14281E] border border-[rgba(46,158,94,0.2)] shadow-soft hover-lift flex flex-col justify-between shrink-0 select-none group text-left"
+                  className="w-[230px] sm:w-[250px] h-[140px] p-4 rounded-[20px] bg-[#FBE3D6]/60 dark:bg-[#201612] border border-[rgba(245,199,176,0.3)] shadow-soft hover-lift flex flex-col justify-between shrink-0 select-none group text-left"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <div className={`w-7 h-7 rounded-lg bg-gradient-to-tr ${item.gradient} text-white flex items-center justify-center shadow-xs shrink-0`}>
+                      <div className={`w-7 h-7 rounded-lg bg-gradient-to-tr ${item.gradient} text-[#2A1810] flex items-center justify-center shadow-xs shrink-0`}>
                         <Icon className="w-3.5 h-3.5" />
                       </div>
                       <span className={`text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-full border ${item.pillColor}`}>
@@ -409,7 +409,7 @@ export const FeaturesPage: React.FC = () => {
 
                   <Link
                     to={item.link}
-                    className="text-[11px] font-semibold text-[#2E9E5E] hover:underline flex items-center gap-1 mt-1"
+                    className="text-[11px] font-semibold text-[#A24E27] dark:text-[#F5C7B0] hover:underline flex items-center gap-1 mt-1"
                   >
                     <span>Explore</span>
                     <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
@@ -427,7 +427,7 @@ export const FeaturesPage: React.FC = () => {
           <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#FF7A6B]" />
-              <h2 className="text-sm font-bold text-[#2E9E5E]">Community Voices & Real Workflows</h2>
+              <h2 className="text-sm font-bold text-[#A24E27] dark:text-[#F5C7B0]">Community Voices & Real Workflows</h2>
             </div>
             <span className="text-xs text-[#6B7C72] dark:text-[#9AB3A4] hidden sm:inline">Smooth Continuous Loop</span>
           </div>
@@ -436,19 +436,19 @@ export const FeaturesPage: React.FC = () => {
             {ROW3_TESTIMONIALS.map((item, idx) => (
               <div
                 key={idx}
-                className="w-[260px] sm:w-[280px] h-[140px] p-4 rounded-[20px] bg-white dark:bg-[#122218] border border-[rgba(46,158,94,0.2)] shadow-soft hover-lift flex flex-col justify-between shrink-0 select-none text-left"
+                className="w-[260px] sm:w-[280px] h-[140px] p-4 rounded-[20px] bg-white dark:bg-[#1A120E] border border-[rgba(245,199,176,0.3)] shadow-soft hover-lift flex flex-col justify-between shrink-0 select-none text-left"
               >
                 <p className="text-[11px] text-[#1B2B22] dark:text-[#F0FDF4] italic line-clamp-2 leading-tight">
                   "{item.quote}"
                 </p>
 
-                <div className="flex items-center justify-between pt-2 border-t border-[rgba(46,158,94,0.12)]">
+                <div className="flex items-center justify-between pt-2 border-t border-[rgba(245,199,176,0.2)]">
                   <div className="flex items-center gap-2.5">
                     <img
                       src={item.avatar}
                       alt={item.name}
                       loading="lazy"
-                      className="w-7 h-7 rounded-full object-cover border border-[#2E9E5E]/30"
+                      className="w-7 h-7 rounded-full object-cover border border-[#F5C7B0]/40"
                     />
                     <div>
                       <h4 className="text-xs font-bold text-[#1B2B22] dark:text-[#F0FDF4]">{item.name}</h4>
@@ -465,7 +465,7 @@ export const FeaturesPage: React.FC = () => {
 
         {/* Call-to-Action Card */}
         <div className="max-w-[1000px] mx-auto px-6 sm:px-10 pt-8">
-          <div className="p-8 sm:p-12 rounded-[24px] bg-[#E6F4EA] dark:bg-[#14281E] border border-[rgba(46,158,94,0.3)] shadow-soft flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="p-8 sm:p-12 rounded-[24px] bg-[#FBE3D6] dark:bg-[#201612] border border-[rgba(245,199,176,0.35)] shadow-soft flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div className="space-y-2">
               <h3 className="text-2xl font-bold text-[#1B2B22] dark:text-[#F0FDF4]">
                 Ready to experience clean focus?
@@ -476,7 +476,7 @@ export const FeaturesPage: React.FC = () => {
             </div>
             <Link
               to="/signin"
-              className="btn-primary-green text-sm shrink-0 hover-lift"
+              className="btn-primary-peach text-sm shrink-0 hover-lift"
             >
               <span>Launch Demo</span>
               <ArrowRight className="w-4 h-4" />

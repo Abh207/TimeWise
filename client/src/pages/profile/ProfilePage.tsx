@@ -73,7 +73,7 @@ export const ProfilePage: React.FC = () => {
         </div>
 
         <div className="p-4 rounded-2xl glass-card border border-white/10 text-center">
-          <CheckCircle2 className="w-5 h-5 text-emerald-400 mx-auto mb-2" />
+          <CheckCircle2 className="w-5 h-5 text-peach-300 mx-auto mb-2" />
           <div className="text-xl font-black text-white font-mono">{completedTasks}</div>
           <div className="text-[10px] uppercase font-bold text-slate-400 mt-0.5">Tasks Done</div>
         </div>
@@ -101,7 +101,7 @@ export const ProfilePage: React.FC = () => {
           </div>
           <div className="p-3.5 rounded-xl bg-dark-900 border border-white/5 space-y-1">
             <div className="text-slate-400">Database Ready</div>
-            <div className="font-semibold text-emerald-400">27 Supabase / PostgreSQL Tables</div>
+            <div className="font-semibold text-peach-300">27 Supabase / PostgreSQL Tables</div>
           </div>
           <div className="p-3.5 rounded-xl bg-dark-900 border border-white/5 space-y-1">
             <div className="text-slate-400">Service Worker</div>

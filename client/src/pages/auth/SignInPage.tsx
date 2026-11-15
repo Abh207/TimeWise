@@ -54,13 +54,13 @@ export const SignInPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-[#F3FAF5] dark:bg-[#0C1812] text-[#1B2B22] dark:text-[#F0FDF4] p-4 sm:p-6 lg:p-8 font-sans transition-colors duration-200">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-[#FDF1EA] dark:bg-[#140F0D] text-[#1B2B22] dark:text-[#F0FDF4] p-4 sm:p-6 lg:p-8 font-sans transition-colors duration-200">
       {/* ============================================================== */}
       {/* LEFT VISUAL PANEL */}
       {/* On desktop: full height rounded card with image & overlay. */}
       {/* On mobile: short rounded banner at top. */}
       {/* ============================================================== */}
-      <div className="lg:w-1/2 relative rounded-[24px] overflow-hidden border border-[rgba(46,158,94,0.2)] shadow-soft flex flex-col justify-between p-6 sm:p-10 min-h-[280px] lg:min-h-full">
+      <div className="lg:w-1/2 relative rounded-[24px] overflow-hidden border border-[rgba(245,199,176,0.3)] shadow-soft flex flex-col justify-between p-6 sm:p-10 min-h-[280px] lg:min-h-full">
         {/* Background Image */}
         <img
           src="/images/signin-bg.jpg"
@@ -68,13 +68,13 @@ export const SignInPage: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Soft Green Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#144329]/90 via-[#2E9E5E]/60 to-[#144329]/40 pointer-events-none" />
+        {/* Soft Peach Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#5C2814]/90 via-[#D9805A]/60 to-[#5C2814]/40 pointer-events-none" />
 
         {/* Top: Logo */}
         <div className="relative z-10">
           <Link to="/" className="inline-flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-2xl bg-white/90 border border-white/20 flex items-center justify-center text-[#2E9E5E] shadow-sm">
+            <div className="w-10 h-10 rounded-2xl bg-white/90 border border-white/20 flex items-center justify-center text-[#D9805A] shadow-sm">
               <Clock className="w-5 h-5 font-bold" />
             </div>
             <span className="font-extrabold text-2xl tracking-tight text-white drop-shadow-sm">
@@ -94,30 +94,30 @@ export const SignInPage: React.FC = () => {
         </div>
 
         {/* Floating Mini Timetable Card */}
-        <div className="relative z-10 hidden sm:block w-full max-w-sm mt-4 p-4 rounded-[18px] bg-white/95 dark:bg-[#122218]/95 backdrop-blur-md border border-[rgba(46,158,94,0.3)] shadow-soft-green text-left animate-float-slow">
-          <div className="flex items-center justify-between pb-2 border-b border-[rgba(46,158,94,0.15)] mb-2.5">
+        <div className="relative z-10 hidden sm:block w-full max-w-sm mt-4 p-4 rounded-[18px] bg-white/95 dark:bg-[#1A120E]/95 backdrop-blur-md border border-[rgba(245,199,176,0.35)] shadow-soft-peach text-left animate-float-slow">
+          <div className="flex items-center justify-between pb-2 border-b border-[rgba(245,199,176,0.25)] mb-2.5">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#2E9E5E] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#F5C7B0] animate-pulse" />
               <span className="text-xs font-bold text-[#1B2B22] dark:text-[#F0FDF4]">Active Schedule</span>
             </div>
-            <span className="text-[10px] font-semibold text-[#2E9E5E] bg-[#E6F4EA] dark:bg-[#1A3122] px-2 py-0.5 rounded-full">
+            <span className="text-[10px] font-semibold text-[#A24E27] dark:text-[#F5C7B0] bg-[#FBE3D6] dark:bg-[#2C1E18] px-2 py-0.5 rounded-full">
               Live Slot
             </span>
           </div>
 
           {/* Timeline slots */}
           <div className="space-y-2">
-            {/* Active task block (green) */}
-            <div className="flex items-center gap-2.5 p-2 rounded-[12px] bg-[#E6F4EA] dark:bg-[#1A3122] border border-[rgba(46,158,94,0.35)]">
-              <div className="w-2 h-2 rounded-full bg-[#2E9E5E] shrink-0" />
+            {/* Active task block (peach) */}
+            <div className="flex items-center gap-2.5 p-2 rounded-[12px] bg-[#FBE3D6] dark:bg-[#2C1E18] border border-[rgba(245,199,176,0.4)]">
+              <div className="w-2 h-2 rounded-full bg-[#F5C7B0] shrink-0" />
               <div className="flex-1">
                 <p className="text-xs font-bold text-[#1B2B22] dark:text-[#F0FDF4]">CS301 &bull; Distributed Systems</p>
-                <p className="text-[10px] text-[#2E9E5E]">09:00 AM - 10:30 AM &bull; Turing Hall</p>
+                <p className="text-[10px] text-[#A24E27] dark:text-[#F5C7B0]">09:00 AM - 10:30 AM &bull; Turing Hall</p>
               </div>
             </div>
 
-            {/* Upcoming block (mint) */}
-            <div className="flex items-center gap-2.5 p-2 rounded-[12px] bg-white dark:bg-[#15281D] border border-[rgba(46,158,94,0.15)]">
+            {/* Upcoming block */}
+            <div className="flex items-center gap-2.5 p-2 rounded-[12px] bg-white dark:bg-[#221713] border border-[rgba(245,199,176,0.25)]">
               <div className="w-2 h-2 rounded-full bg-[#6B7C72] shrink-0" />
               <div className="flex-1">
                 <p className="text-xs font-semibold text-[#1B2B22] dark:text-[#F0FDF4]">Deep Focus &bull; Solfeggio 528Hz</p>
@@ -137,7 +137,7 @@ export const SignInPage: React.FC = () => {
       {/* RIGHT AUTH FORM PANEL */}
       {/* ============================================================== */}
       <div className="lg:w-1/2 flex items-center justify-center p-4 sm:p-10 lg:p-12">
-        <div className="w-full max-w-md p-6 sm:p-10 rounded-[24px] bg-white dark:bg-[#122218] border border-[rgba(46,158,94,0.2)] shadow-soft">
+        <div className="w-full max-w-md p-6 sm:p-10 rounded-[24px] bg-white dark:bg-[#1A120E] border border-[rgba(245,199,176,0.3)] shadow-soft">
           <div className="text-left space-y-1 mb-6">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1B2B22] dark:text-[#F0FDF4] tracking-tight">
               Sign In to TimeWise
@@ -147,21 +147,21 @@ export const SignInPage: React.FC = () => {
             </p>
           </div>
 
-          {/* 1-Click Demo Login Button (Prominent outlined green button with sparkle icon) */}
+          {/* 1-Click Demo Login Button (Prominent outlined peach button with sparkle icon) */}
           <button
             type="button"
             onClick={handleDemoSignIn}
             disabled={isLoading}
-            className="w-full py-3 px-4 rounded-full border-2 border-[#2E9E5E] bg-[#E6F4EA] dark:bg-[#1A3122] hover:bg-[#2E9E5E] text-[#2E9E5E] hover:text-white text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:shadow-soft"
+            className="w-full py-3 px-4 rounded-full border-2 border-[#F5C7B0] bg-[#FBE3D6] dark:bg-[#2C1E18] hover:bg-[#F5C7B0] text-[#A24E27] dark:text-[#F5C7B0] hover:text-[#2A1810] text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:shadow-soft"
           >
-            <Sparkles className="w-4 h-4 shrink-0 text-[#2E9E5E] group-hover:text-white" />
+            <Sparkles className="w-4 h-4 shrink-0 text-[#A24E27] dark:text-[#F5C7B0] group-hover:text-[#2A1810]" />
             <span>1-Click Demo Login (Alex Chen &bull; Student)</span>
           </button>
 
           {/* Divider */}
           <div className="relative flex items-center justify-center my-6">
-            <div className="border-t border-[rgba(46,158,94,0.15)] w-full" />
-            <span className="bg-white dark:bg-[#122218] px-3 text-[10px] uppercase font-bold tracking-wider text-[#6B7C72] dark:text-[#9AB3A4] absolute">
+            <div className="border-t border-[rgba(245,199,176,0.25)] w-full" />
+            <span className="bg-white dark:bg-[#1A120E] px-3 text-[10px] uppercase font-bold tracking-wider text-[#6B7C72] dark:text-[#9AB3A4] absolute">
               or with credentials
             </span>
           </div>
@@ -197,7 +197,7 @@ export const SignInPage: React.FC = () => {
                 <label className="text-xs font-semibold text-[#1B2B22] dark:text-[#F0FDF4]">
                   Password
                 </label>
-                <Link to="/forgot-password" className="text-xs text-[#2E9E5E] hover:underline font-medium">
+                <Link to="/forgot-password" className="text-xs text-[#A24E27] dark:text-[#F5C7B0] hover:underline font-medium">
                   Forgot?
                 </Link>
               </div>
@@ -226,7 +226,7 @@ export const SignInPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="btn-primary-green w-full py-3.5 mt-2 text-xs font-bold uppercase tracking-wider"
+              className="btn-primary-peach w-full py-3.5 mt-2 text-xs font-bold uppercase tracking-wider"
             >
               {isLoading ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -242,7 +242,7 @@ export const SignInPage: React.FC = () => {
           {/* Sign Up Link */}
           <p className="text-center text-xs text-[#6B7C72] dark:text-[#9AB3A4] mt-6">
             Don't have an account yet?{' '}
-            <Link to="/signup" className="text-[#2E9E5E] hover:underline font-bold">
+            <Link to="/signup" className="text-[#A24E27] dark:text-[#F5C7B0] hover:underline font-bold">
               Create an account
             </Link>
           </p>

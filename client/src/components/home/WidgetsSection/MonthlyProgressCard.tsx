@@ -16,7 +16,7 @@ export const MonthlyProgressCard: React.FC = () => {
   const current = MONTHLY_GOALS[goalIndex];
 
   return (
-    <div className="widget-card p-4 sm:p-5 flex flex-col justify-between">
+    <div className="widget-card p-[clamp(16px,1.4vw,24px)] flex flex-col justify-between">
       {/* Header */}
       <div className="flex items-center justify-between pb-2">
         <div className="min-w-0 pr-2">
@@ -33,7 +33,7 @@ export const MonthlyProgressCard: React.FC = () => {
             type="button"
             onClick={handlePrev}
             aria-label="Previous month goal"
-            className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#C8F03C] dark:hover:text-[#141414] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C8F03C]"
+            className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#F5C7B0] dark:hover:text-[#2A1810] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F5C7B0]"
           >
             <ChevronLeft className="w-3.5 h-3.5" />
           </button>
@@ -41,7 +41,7 @@ export const MonthlyProgressCard: React.FC = () => {
             type="button"
             onClick={handleNext}
             aria-label="Next month goal"
-            className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#C8F03C] dark:hover:text-[#141414] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C8F03C]"
+            className="w-6 h-6 rounded-full bg-[#F3EFE9] dark:bg-[#2A2A2A] text-[#141414] dark:text-white flex items-center justify-center hover:bg-[#141414] hover:text-white dark:hover:bg-[#F5C7B0] dark:hover:text-[#2A1810] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F5C7B0]"
           >
             <ChevronRight className="w-3.5 h-3.5" />
           </button>

@@ -141,7 +141,7 @@ export const TasksPage: React.FC = () => {
       {/* Header Bar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl glass-card border border-white/10">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-peach-300 mb-1">
             <CheckSquare className="w-3.5 h-3.5" />
             <span>Smart Task Engine</span>
           </div>
@@ -307,12 +307,12 @@ export const TasksPage: React.FC = () => {
               setDragOverCol(null);
             }}
             className={`p-4 rounded-2xl glass-card border space-y-3 transition-all ${
-              dragOverCol === 'completed' ? 'border-emerald-400 bg-emerald-500/10 shadow-lg' : 'border-white/10'
+              dragOverCol === 'completed' ? 'border-peach-300 bg-peach-300/15 shadow-lg' : 'border-white/10'
             }`}
           >
             <div className="flex items-center justify-between pb-2 border-b border-white/10 text-xs font-bold text-slate-300">
               <span className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> Done & Verified
+                <span className="w-2.5 h-2.5 rounded-full bg-peach-300" /> Done & Verified
               </span>
               <span className="px-2 py-0.5 rounded-full bg-white/5 font-mono">{completedTasks.length}</span>
             </div>
@@ -579,7 +579,7 @@ const TaskCard: React.FC<{
           {!task.isCompleted && (
             <button
               onClick={() => onMoveTo('completed')}
-              className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30"
+              className="px-1.5 py-0.5 rounded bg-peach-300/20 text-peach-300 hover:bg-peach-300/30"
               title="Mark Completed"
             >
               Done

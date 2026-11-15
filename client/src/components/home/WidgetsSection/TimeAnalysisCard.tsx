@@ -54,7 +54,7 @@ export const TimeAnalysisCard: React.FC = () => {
   const pauseY = getY(selectedDay.pauseHours);
 
   return (
-    <div className="widget-card p-4 sm:p-5 flex flex-col justify-between">
+    <div className="widget-card p-[clamp(16px,1.4vw,24px)] flex flex-col justify-between">
       {/* Header */}
       <div>
         <div className="flex items-center justify-between">
@@ -91,7 +91,7 @@ export const TimeAnalysisCard: React.FC = () => {
         </div>
 
         {/* SVG Chart */}
-        <div className="relative w-full h-[95px] my-1">
+        <div className="relative w-full h-[clamp(95px,7.5vw,120px)] my-1">
           <svg
             viewBox={`0 0 ${svgWidth} ${svgHeight}`}
             className="w-full h-full overflow-visible"
@@ -161,7 +161,7 @@ export const TimeAnalysisCard: React.FC = () => {
                 onClick={() => setSelectedDayIndex(idx)}
                 onMouseEnter={() => setSelectedDayIndex(idx)}
                 aria-label={`View ${item.day} analysis`}
-                className={`text-[10px] font-bold py-1 px-2.5 rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C8F03C] ${
+                className={`text-[10px] font-bold py-1 px-2.5 rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F5C7B0] ${
                   isSelected
                     ? 'bg-white dark:bg-[#141414] text-[#141414] dark:text-white shadow-2xs scale-105'
                     : 'text-[#737373] dark:text-[#A3A3A3] hover:text-[#141414] dark:hover:text-white'
@@ -182,7 +182,7 @@ export const TimeAnalysisCard: React.FC = () => {
             type="button"
             onClick={() => setActiveSetIndex(i)}
             aria-label={`Switch to period ${i + 1}`}
-            className={`transition-all duration-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8F03C] ${
+            className={`transition-all duration-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C7B0] ${
               i === activeSetIndex
                 ? 'w-4 h-1.5 bg-[#141414] dark:bg-white'
                 : 'w-1.5 h-1.5 bg-black/20 dark:bg-white/20 hover:bg-black/40'

@@ -96,14 +96,14 @@ export const AnalyticsPage: React.FC = () => {
           <div className="text-2xl font-extrabold text-white">
             {(totalFocusMins / 60).toFixed(1)}h
           </div>
-          <div className="text-[11px] text-lime-400 mt-1 flex items-center gap-1">
+          <div className="text-[11px] text-peach-300 mt-1 flex items-center gap-1">
             <TrendingUp className="w-3 h-3" /> +1.2 hrs vs last week
           </div>
         </div>
 
         <div className="p-4 rounded-2xl glass-card border border-white/10">
           <div className="text-xs text-slate-400 mb-1 flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Task Completion Rate
+            <CheckCircle2 className="w-4 h-4 text-peach-300" /> Task Completion Rate
           </div>
           <div className="text-2xl font-extrabold text-white">
             {taskCompletionRate}%
@@ -214,7 +214,7 @@ export const AnalyticsPage: React.FC = () => {
         {/* Personalized Recommendations */}
         <div className="p-5 rounded-2xl glass-card border border-white/10 lg:col-span-2 space-y-3">
           <h3 className="text-sm font-bold text-white flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-lime-400" />
+            <Sparkles className="w-4 h-4 text-peach-300" />
             <span>AI Rule-Based Schedule Insights</span>
           </h3>
 

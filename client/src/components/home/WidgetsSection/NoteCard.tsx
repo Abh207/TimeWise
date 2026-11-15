@@ -46,7 +46,7 @@ export const NoteCard: React.FC = () => {
       </div>
 
       {/* Note Body */}
-      <div className="p-4 pt-3 flex flex-col justify-between flex-1">
+      <div className="p-[clamp(14px,1.4vw,22px)] pt-3 flex flex-col justify-between flex-1">
         <p className="text-xs text-[#52320A] leading-relaxed font-medium">
           Plan the week for the Algorithms project. Keep blocks short, protect deep-work time, and remember to include:
         </p>
@@ -68,13 +68,13 @@ export const NoteCard: React.FC = () => {
           </button>
 
           {/* Animated Waveform Bars */}
-          <div className="flex items-center gap-[2.5px] h-6 flex-1 px-1 overflow-hidden">
+          <div className="flex items-center justify-between gap-[2px] sm:gap-[3px] h-6 flex-1 px-1 sm:px-2 overflow-hidden">
             {NOTE_WAVEFORM_BARS.map((height, i) => {
               const isPlayed = i < 7;
               return (
                 <div
                   key={i}
-                  className={`w-[2.5px] rounded-full transition-all duration-200 ${
+                  className={`flex-1 max-w-[4px] min-w-[2px] rounded-full transition-all duration-200 ${
                     isPlaying ? 'waveform-active' : ''
                   } ${isPlayed ? 'bg-[#141414]' : 'bg-[#FDBA74]'}`}
                   style={{

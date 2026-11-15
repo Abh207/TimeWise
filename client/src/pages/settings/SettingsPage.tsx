@@ -95,18 +95,18 @@ export const SettingsPage: React.FC = () => {
       </div>
 
       {/* Supabase Readiness Status Banner */}
-      <div className="p-5 rounded-2xl glass-card border border-emerald-500/30 bg-emerald-500/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="p-5 rounded-2xl glass-card border border-peach-400/30 bg-peach-300/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
-          <Database className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+          <Database className="w-5 h-5 text-peach-300 flex-shrink-0 mt-0.5" />
           <div>
             <div className="font-bold text-sm text-white flex items-center gap-2">
               <span>Database Architecture: PostgreSQL & Supabase Ready</span>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">
+              <span className="text-[10px] px-2 py-0.5 rounded bg-peach-300/20 text-peach-300 font-mono">
                 Decoupled
               </span>
             </div>
             <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-              Your session is currently running on the high-performance local adapter. When ready for production, plug your <code className="text-emerald-300">VITE_SUPABASE_URL</code> and key in <code className="text-emerald-300">.env</code>; all 27 tables & RLS policies in <code className="text-emerald-300">/supabase/migrations</code> will take over seamlessly.
+              Your session is currently running on the high-performance local adapter. When ready for production, plug your <code className="text-peach-300">VITE_SUPABASE_URL</code> and key in <code className="text-peach-300">.env</code>; all 27 tables & RLS policies in <code className="text-peach-300">/supabase/migrations</code> will take over seamlessly.
             </p>
           </div>
         </div>
@@ -188,7 +188,7 @@ export const SettingsPage: React.FC = () => {
 
         <div className="flex items-center justify-between pt-3 border-t border-white/10">
           {isSaved && (
-            <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
+            <span className="text-xs text-peach-300 font-semibold flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4" /> Preferences saved!
             </span>
           )}

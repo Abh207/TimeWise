@@ -32,7 +32,7 @@ export const ContactPage: React.FC = () => {
         <div className="p-8 rounded-2xl glass-card border border-white/10 shadow-2xl">
           {isSent ? (
             <div className="text-center py-8 space-y-3">
-              <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
+              <CheckCircle2 className="w-12 h-12 text-peach-300 mx-auto" />
               <h2 className="text-xl font-bold text-white">Message Dispatched!</h2>
               <p className="text-xs text-slate-300">
                 Thank you for reaching out. A team member will review your note shortly.

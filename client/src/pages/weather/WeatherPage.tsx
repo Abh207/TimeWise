@@ -153,7 +153,7 @@ export const WeatherPage: React.FC = () => {
         {/* Weather-Aware Timetable Advice Card */}
         <div className="p-6 rounded-3xl glass-card border border-brand-500/30 bg-gradient-to-b from-brand-950/40 to-dark-900 flex flex-col justify-between space-y-4">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-lime-400 mb-2">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-peach-300 mb-2">
               <Sparkles className="w-4 h-4" /> Schedule Impact Engine
             </div>
             <h3 className="text-base font-bold text-white">Atmospheric Recommendations</h3>

@@ -9,69 +9,160 @@ interface TodayTasksPanelProps {
   slideIndex: number;
 }
 
-export const TodayTasksPanel: React.FC<TodayTasksPanelProps> = ({ tasks, slideIndex }) => {
+export const TodayTasksPanel: React.FC<TodayTasksPanelProps> = ({ 
+  tasks, 
+  slideIndex,
+}) => {
   const currentDate = format(new Date(), 'dd.MM');
 
   return (
-    <div className="rounded-[18px] p-2.5 sm:p-3 bg-white/65 backdrop-blur-xl border border-white/80 shadow-[0_8px_24px_rgba(60,40,10,0.06)] max-w-[265px] sm:max-w-[290px] w-full transition-all duration-200">
+    <div
+      className="flex flex-col justify-between transition-all duration-200 select-none"
+      style={{
+        width: 'calc(577 * var(--s))',
+        height: 'calc(325 * var(--s))',
+        backgroundColor: 'rgba(255, 255, 255, 0.78)',
+        backdropFilter: 'blur(calc(14 * var(--s)))',
+        WebkitBackdropFilter: 'blur(calc(14 * var(--s)))',
+        borderRadius: 'calc(40 * var(--s))',
+        padding: 'calc(24 * var(--s))',
+        border: 'calc(1 * var(--s)) solid rgba(255, 255, 255, 0.95)',
+        boxShadow: '0 calc(12 * var(--s)) calc(32 * var(--s)) rgba(60, 40, 10, 0.08)',
+      }}
+    >
       {/* Header */}
-      <div className="flex items-center justify-between pb-2 border-b border-black/5">
-        <div>
-          <h2 className="text-xs sm:text-[13px] font-bold text-[#141414] leading-tight">
+      <div className="flex items-start justify-between">
+        <div className="flex flex-col">
+          <h2
+            className="font-bold leading-tight"
+            style={{
+              fontSize: 'max(var(--min-font, 0px), calc(34 * var(--s)))',
+              color: '#141414',
+            }}
+          >
             Today's Tasks
           </h2>
-          <p className="text-[9px] sm:text-[10px] text-[#6F6A64] mt-0.5">
+          <span
+            className="font-medium"
+            style={{
+              fontSize: 'max(var(--min-font, 0px), calc(22 * var(--s)))',
+              color: '#7A756E',
+              marginTop: 'calc(4 * var(--s))',
+            }}
+          >
             To-do list for today
-          </p>
+          </span>
         </div>
 
+        {/* White Rounded-Square ↗ Button: 60 x 60 at top-right */}
         <Link
           to="/app/timetable"
-          className="w-6 h-6 rounded-md bg-white shadow-xs flex items-center justify-center text-[#141414] hover:bg-[#141414] hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
+          className="flex items-center justify-center bg-white shadow-2xs hover:shadow-xs hover:bg-[#FDFBF7] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1C21] cursor-pointer"
           title="Open Academic Timetable"
-          aria-label="Open Timetable"
+          aria-label="Open Academic Timetable"
+          style={{
+            width: 'calc(60 * var(--s))',
+            height: 'calc(60 * var(--s))',
+            borderRadius: 'calc(18 * var(--s))',
+            color: '#141414',
+            border: 'calc(1 * var(--s)) solid rgba(0, 0, 0, 0.04)',
+          }}
         >
-          <ArrowUpRight className="w-3 h-3" />
+          <ArrowUpRight 
+            style={{ width: 'calc(28 * var(--s))', height: 'calc(28 * var(--s))' }} 
+            strokeWidth={2.2} 
+          />
         </Link>
       </div>
 
-      {/* Two White Mini Cards Side by Side */}
-      <div key={slideIndex} className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2.5 animate-fade-in">
-        {tasks.map((task, idx) => (
-          <div
-            key={idx}
-            className="p-2 sm:p-2.5 rounded-lg bg-white shadow-2xs border border-black/5 flex flex-col justify-between space-y-1 hover:shadow-xs transition-shadow"
-          >
-            {/* Date & Time */}
-            <span className="text-[8px] sm:text-[8.5px] font-mono font-semibold text-[#6F6A64]">
-              {currentDate} &bull; {task.time}
-            </span>
+      {/* Two White Cards Side by Side (each 254 x 200, radius 28, gap 20) */}
+      <div 
+        key={slideIndex}
+        className="flex items-stretch justify-between animate-fade-in"
+        style={{
+          gap: 'calc(20 * var(--s))',
+        }}
+      >
+        {tasks.map((task, idx) => {
+          const isProgress = task.status === 'In Progress';
+          const dotColor = isProgress ? 'var(--accent-orange, #F7852C)' : 'var(--accent-amber, #FFC043)';
 
-            {/* Task Title & Subtitle */}
-            <div>
-              <h3 className="text-[10px] sm:text-[11px] font-bold text-[#141414] leading-snug line-clamp-1">
-                {task.title}
-              </h3>
-              <p className="text-[8.5px] sm:text-[9px] text-[#6F6A64] mt-0.5 line-clamp-1">
-                {task.subtitle}
-              </p>
-            </div>
-
-            {/* Status with Color Dot */}
-            <div className="flex items-center gap-1 pt-1 border-t border-black/5">
-              <span 
-                className={`w-1.5 h-1.5 rounded-full ${
-                  task.dotColor === 'lime' 
-                    ? 'bg-[#C8F03C] shadow-[0_0_4px_#C8F03C]' 
-                    : 'bg-[#4DA3FF] shadow-[0_0_4px_#4DA3FF]'
-                }`} 
-              />
-              <span className="text-[9px] font-semibold text-[#141414]">
-                {task.status}
+          return (
+            <div
+              key={idx}
+              className="flex flex-col justify-between bg-white shadow-2xs hover:shadow-xs transition-shadow"
+              style={{
+                width: 'calc(254 * var(--s))',
+                height: 'calc(200 * var(--s))',
+                borderRadius: 'calc(28 * var(--s))',
+                padding: 'calc(18 * var(--s))',
+                border: 'calc(1 * var(--s)) solid rgba(0, 0, 0, 0.04)',
+              }}
+            >
+              {/* Top: Date line: 19 */}
+              <span
+                className="font-normal whitespace-nowrap"
+                style={{
+                  fontSize: 'max(var(--min-font, 0px), calc(19 * var(--s)))',
+                  color: '#7A756E',
+                }}
+              >
+                {currentDate} &nbsp;{task.time}
               </span>
+
+              {/* Middle: Bold Task Title & Subtitle: Title 25, Subtitle 19 */}
+              <div className="flex flex-col" style={{ gap: 'calc(3 * var(--s))' }}>
+                <h3
+                  className="font-bold leading-tight"
+                  style={{
+                    fontSize: 'max(var(--min-font, 0px), calc(25 * var(--s)))',
+                    color: '#141414',
+                    wordBreak: 'break-word',
+                  }}
+                >
+                  {task.title}
+                </h3>
+                <span
+                  className="font-normal"
+                  style={{
+                    fontSize: 'max(var(--min-font, 0px), calc(19 * var(--s)))',
+                    color: '#7A756E',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {task.subtitle}
+                </span>
+              </div>
+
+              {/* Bottom: Status 19 & Dot 18 */}
+              <div 
+                className="flex items-center justify-between border-t border-black/5"
+                style={{
+                  paddingTop: 'calc(8 * var(--s))',
+                }}
+              >
+                <span
+                  className="font-normal whitespace-nowrap"
+                  style={{
+                    fontSize: 'max(var(--min-font, 0px), calc(19 * var(--s)))',
+                    color: '#7A756E',
+                  }}
+                >
+                  {task.status}
+                </span>
+                <span
+                  className="rounded-full shrink-0"
+                  style={{
+                    width: 'calc(18 * var(--s))',
+                    height: 'calc(18 * var(--s))',
+                    backgroundColor: dotColor,
+                    boxShadow: `0 0 calc(6 * var(--s)) ${dotColor}`,
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
